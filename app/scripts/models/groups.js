@@ -4,7 +4,7 @@ var Backbone = require('backbone');
 
 
 var Group = Backbone.Model.extend({
-  idAttribute: "objectId"
+  // idAttribute: "objectId"
 });
 
 

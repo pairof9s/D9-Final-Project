@@ -3,13 +3,28 @@ var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 
 
-var Student = Backbone.Model.extend({
-  idAttribute: "objectId"
+var User = Backbone.Model.extend({
+  idAttribute: 'objectId',
+  defaults: {
+    username: '',
+    password: ''
+  },
+  urlRoot: 'https://d9-dev-server.herokuapp.com/classes/D9students',
+  login: function(username, password){
+    var loggedInUser = new User();
+    var queryString = 'username' + username + 'password' + password;
+    loggedInUser.urlRoot = 'https://d9-dev-server.herokuapp.com/classes/D9students?' + queryString;
+    return loggedInUser.fetch();
+    }
+});
+
+var Session = Backbone.Model.extend({
+  
 });
 
 
 var StudentCollection = Backbone.Collection.extend({
-  model: Student,
+  model: User,
   url: 'https://d9-dev-server.herokuapp.com/classes/D9students/',
   parser: function(serverResponse){
   return serverResponse.results;
@@ -17,6 +32,7 @@ var StudentCollection = Backbone.Collection.extend({
 });
 
 module.exports = {
-  'Student': Student,
-  'StudentCollection': StudentCollection
-}
+  'User': User,
+  'StudentCollection': StudentCollection,
+  'Session': Session
+};
