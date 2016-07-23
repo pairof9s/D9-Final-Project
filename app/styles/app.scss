@@ -17,12 +17,36 @@ img {
 }
 
 .container-fluid {
-  margin: 0 auto;
+  margin: 0 20px;
   padding: 0;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Baloo', sans-serif;
+}
+
+.icon-third img {
+  width: 30%;
+  margin-top: 30px;
+}
+
+.group-table {
+  table {
+    margin: 0;
+    padding: 0;
+  }
+
+  th {
+    text-align: center;
+  }
+
+  tbody {
+    text-align: center;
+  }
+}
+
+.panel-body {
+  padding: 10px;
 }
 
 .orange-box {

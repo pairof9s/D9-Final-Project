@@ -5,7 +5,7 @@ var Backbone = require('backbone');
 // var LoginForm = require('./components/login.jsx');
 // var Signup = require('./components/signup.jsx')
 // var RegisterForm = require('./components/register.jsx');
-var GroupSetup = require('./components/group-setup.jsx');
+var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
 // var ScheduleMap = require('./components/schedules.jsx');
 
 
