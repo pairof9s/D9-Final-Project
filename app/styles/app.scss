@@ -30,27 +30,68 @@ h1, h2, h3, h4 {
   margin-top: 30px;
 }
 
-.group-table {
+#page-title {
+  color: #7D00CA;
+}
+
+.sect-sep {
+  border-bottom: 1px solid #7D00CA;
+  margin-bottom: 10px;
+}
+
+.panel {
+  border: 1px solid #FF672F;
+
+  .panel-heading {
+    color: white;
+    background-color: #FF672F;
+  }
+
   table {
     margin: 0;
     padding: 0;
+    color: #7D00CA;
   }
 
-  th {
-    text-align: center;
-  }
+}
 
-  tbody {
-    text-align: center;
-  }
+.btn-success {
+  color: white;
+  background-color: #FF672F;
+  border: 1px solid #FF672F;
+  margin-bottom: 20px;
+}
+
+.btn-success:hover {
+  color: #FF672F;
+  background-color: #FEB08E;
+  border: 1px solid #FEB08E;
+}
+
+.btn-success:active {
+  color: #FF672F;
+  background-color: #FEB08E;
+  border: 1px solid #FEB08E;
+}
+
+.btn-primary:focus {
+  color: white;
+  background-color: #FF672F;
+  border: 1px solid #FF672F;
 }
 
 .panel-body {
   padding: 10px;
 }
 
+.td-header-group {
+  color: white;
+  background-color: #FF672F;
+  border: 1px solid #FF672F;
+}
 .orange-box {
   background-color: #FF672F;
+  color: #9662D0;
 }
 
 .purple-box {
