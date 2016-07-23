@@ -32,6 +32,16 @@ var data = [
     { id: 4033, studentName: 'Frank Lee', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M', selectStudent: <input type="checkbox"/> },
 ];
 
+var onRowSelect;
+var onSelectAll;
+var selectRowProp = {
+    mode: "checkbox",
+    clickToSelect: true,
+    bgColor: "rgb(238, 193, 213)",
+    onSelect: onRowSelect,
+    onSelectAll: onSelectAll
+};
+
 var GroupSetup = React.createClass({
   getInitialState: function(){
     return {
@@ -48,18 +58,21 @@ var GroupSetup = React.createClass({
     });
   },
   generateRows: function() {
-
-      return data.map(function(item) {
-        var cells = cols.map(function(colData) {
-          return <td>{item[colData.type]}</td>;
-        });
-        return <tr key={item.id}>{cells}</tr>;
+    return data.map(function(item) {
+      var cells = cols.map(function(colData) {
+        return <td>{item[colData.type]}</td>;
       });
+      return <tr key={item.id}>{cells}</tr>;
+    });
+  },
+  onRowSelect: function(row, isSelected){
+      console.log(row);
+      console.log("selected: " + isSelected)
+  },
+  onSelectAll: function(isSelected){
+      console.log("is select all: " + isSelected);
   },
   render: function(){
-    var headerComponents = this.generateHeaders();
-    var rowComponents = this.generateRows();
-
     return (
       <div className="col-md-10 group-table">
         <div className="icon-third"><img src="images/PoolParty_logo.png"></img></div>
@@ -74,24 +87,21 @@ var GroupSetup = React.createClass({
                 <p>Select from the eligible students shown to form your potential car pool group. Do not select more than 4 potential students; Groups cannot consist of more than 5 members. Students with the name crossed through have already joined a group.</p>
                 <p>Once you’ve selected your group, name the group below. Then click the Create button. An email will be sent to each student’s parent(s) informing them of your wish to have them join your car pool. You will be notified once they have confirmed their participation.</p>
               </div>
-            <table className="table table-condensed table-striped table-hover">
-              <thead>
-                <tr>{headerComponents}</tr>
-              </thead>
-              <tbody>
-                {rowComponents}
-              </tbody>
-            </table>
+          <div>
+            <BootstrapTable data={data} height="280" selectRow={selectRowProp}>
+              <TableHeaderColumn dataField="studentName" isKey={true} width="30%">Eligible Students</TableHeaderColumn>
+              <TableHeaderColumn dataField="studentSchool" dataAlign="center" width="40%">School</TableHeaderColumn>
+              <TableHeaderColumn dataField="studentGrade" dataAlign="center" width="10%">Grade Level</TableHeaderColumn>
+              <TableHeaderColumn dataField="studentGender" dataAlign="center" width="10%">Gender</TableHeaderColumn>
+            </BootstrapTable>
+            <div>
+              <button type="submit" className="btn btn-success btn-sm pull-right">Create Group</button>
+            </div>
           </div>
-          <div><button type="submit" className="btn btn-success btn-sm pull-right">Create Group</button></div>
-        </div>
-        <div>
-
-        </div>
       </div>
     )
   }
-});
+}),
 
 
 
