@@ -29,7 +29,8 @@
     "react-dom": "^0.14.7",
     "reactify": "^1.1.1",
     "react-bootstrap": "^0.28.3",
-    "backbone-react-component": "^0.10.0"
+    "backbone-react-component": "^0.10.0",
+    "react-bootstrap-table": "v2.3.7"
   },
   "scripts": {
     "html": "cp app/*.html dist/",
@@ -72,6 +73,8 @@
     ]
   },
   "dependencies": {
-    "react-bootstrap-table": "^2.3.8"
+    "react": "^0.14.8",
+    "react-bootstrap-table": "^2.3.8",
+    "react-dom": "^0.14.8"
   }
 }

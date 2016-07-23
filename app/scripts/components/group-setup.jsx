@@ -1,5 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var ReactBsTable = require("react-bootstrap-table");
+var BootstrapTable = ReactBsTable.BootstrapTable;
+var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
 
 // var models = require('../models/students');
 var StudentCollection = require('../models/students').StudentCollection;
