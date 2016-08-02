@@ -25,6 +25,11 @@ h1, h2, h3, h4 {
   font-family: 'Baloo', sans-serif;
 }
 
+h3 {
+  color: #FF672F;
+  margin-top: 10px;
+}
+
 .icon-third img {
   width: 30%;
   margin-top: 30px;
@@ -59,9 +64,17 @@ h1, h2, h3, h4 {
 
 }
 
+.signup-sect {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
 .btn-warning {
   margin-top: 6px;
   margin-bottom: 6px;
+  color: white;
+  background-color: #FF672F;
+  border: 1px solid #FF672F;
 }
 
 .btn-success {
