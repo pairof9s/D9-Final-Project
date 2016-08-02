@@ -2,8 +2,6 @@ var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
-var models = require('../models/students');
-var User = require('../models/students');
 var Session = require('../models/students').Session;
 
 
@@ -40,22 +38,25 @@ var LoginForm = React.createClass({
   render: function(){
     return (
       <div className="col-md-2 log-form">
-        <div className="log-sect">
-          <h4><span className="glyphicon glyphicon-log-in log-icon"></span>Log In...</h4>
+        <div className="row">
+          <div className="log-sect">
+            <h4 id="form-title"><span className="glyphicon glyphicon-log-in log-icon"></span>Log In...</h4>
+          </div>
+          <form onSubmit={this.handleLoginSubmit}>
+            <label htmlFor="username">User Name</label>
+            <input onChange={this.handleUsernameChange} type="username" className="form-control log-entry" id="username" placeholder="Enter Username"></input>
+            <label htmlFor="password">Password</label>
+            <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter Password"></input>
+            <input type="submit" className="btn btn-warning btn-sm pull-right" value="Login"></input>
+          </form>
         </div>
-        <form onSubmit={this.handleLoginSubmit}>
-          <label htmlFor="username">User Name</label>
-          <input onChange={this.handleUsernameChange} type="username" className="form-control log-entry" id="username" placeholder="Enter Username"></input>
-          <label htmlFor="password">Password</label>
-          <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter Password"></input>
-          <input type="submit" className="btn btn-warning btn-sm pull-right" value="Login"></input>
-        </form>
+        <div className="row">
+          <div className="open-links">Not signed up yet? <a href="#signup/">Click here</a></div>
+        </div>
       </div>
     )
   }
 });
 
 
-module.exports = {
-  'LoginForm': LoginForm
-};
+module.exports = LoginForm;

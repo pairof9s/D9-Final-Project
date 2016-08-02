@@ -2,8 +2,8 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 
-// var LoginForm = require('./components/login.jsx');
-// var Signup = require('./components/signup.jsx')
+var LoginForm = require('./components/login.jsx');
+var Signup = require('./components/signup.jsx')
 // var RegisterForm = require('./components/register.jsx');
 var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
 // var ScheduleMap = require('./components/schedules.jsx');
@@ -11,31 +11,30 @@ var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
 
 var Router = Backbone.Router.extend({
   routes: {
-    // '': 'loginController',
-    // 'login/': 'loginController',
-    // // 'signup/': 'signupController',
+    '': 'loginController',
+    'login/': 'loginController',
+    'signup/': 'signupController',
     'groups/': 'groupCreate',
-    // 'groups/:id/edit/': 'groupAddChange',
+    'groups/:id/edit/': 'groupAddChange',
     // 'schedules/': 'scheduleController'
   },
   // initialize: function(){
   //
   // },
-  // loginController: function(){
-  //   console.log('login');
-  //   var self = this;
-  //   ReactDOM.render(
-  //     React.createElement(LoginForm, {router: self}),
-  //     document.getElementById('container')
-  //   )
-  // },
-  // signupController: function(){
-  //   var self = this;
-  //   ReactDOM.render(
-  //     React.createElement(Signup, {router: self}),
-  //     document.getElementById('container')
-  //   );
-  // },
+  loginController: function(){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(LoginForm, {router: self}),
+      document.getElementById('container')
+    )
+  },
+  signupController: function(){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(Signup, {router: self}),
+      document.getElementById('container')
+    );
+  },
   // registerController: function(){
   //   var self = this;
   //   ReactDOM.render(
@@ -47,6 +46,12 @@ var Router = Backbone.Router.extend({
     var self = this;
     ReactDOM.render(
       React.createElement(GroupSetup, {router: self}),
+      document.getElementById('container')
+    );
+  },
+  groupAddChange: function(id){
+    ReactDOM.render(
+      React.createElement(RecipeForm, {router: this, editId: id}),
       document.getElementById('container')
     );
   },

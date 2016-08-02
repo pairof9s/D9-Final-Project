@@ -34,6 +34,10 @@ h1, h2, h3, h4 {
   color: #7D00CA;
 }
 
+#form-title {
+  color: #7D00CA;
+}
+
 .sect-sep {
   border-bottom: 1px solid #7D00CA;
   margin-bottom: 10px;
@@ -53,6 +57,11 @@ h1, h2, h3, h4 {
     color: #7D00CA;
   }
 
+}
+
+.btn-warning {
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 .btn-success {
@@ -88,6 +97,25 @@ h1, h2, h3, h4 {
   color: white;
   background-color: #FF672F;
   border: 1px solid #FF672F;
+}
+
+.log-icon {
+  margin-right: 6px;
+  color: #FF672F;
+}
+
+.open-links {
+  font-size: .85em;
+  color: #666;
+
+  & a {
+    color: #FF672F;
+    text-decoration: none;
+  }
+
+  & a:hover {
+    text-decoration: underline;
+  }
 }
 .orange-box {
   background-color: #FF672F;
