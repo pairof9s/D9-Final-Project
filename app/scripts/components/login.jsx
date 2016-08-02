@@ -37,23 +37,35 @@ var LoginForm = React.createClass({
   },
   render: function(){
     return (
-      <div className="col-md-2 log-form">
-        <div className="row">
-          <div className="log-sect">
-            <h4 id="form-title"><span className="glyphicon glyphicon-log-in log-icon"></span>Log In...</h4>
+      <div className="wrapper">
+        <div className="row col-md-3">
+          <div className="log-frame">
+            <div className="log-top">
+              <div className="icon-lrg">
+                <img src="images/PoolParty_whitelog.png"></img>
+              </div>
+              <div>
+                <p>Welcome! Login to join your Group or to get a new one started. <a href="#signup/">Click here</a> if you’re looking to join!</p>
+              </div>
+            </div>
+            <div className="log-sect">
+              <div>
+                <h4 id="form-title"><span className="glyphicon glyphicon-log-in log-icon"></span>Log In...</h4>
+              </div>
+              <form onSubmit={this.handleLoginSubmit}>
+                <label htmlFor="username">User Name</label>
+                <input onChange={this.handleUsernameChange} type="username" className="form-control log-entry" id="username" placeholder="Enter Username"></input>
+                <label htmlFor="password">Password</label>
+                <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter Password"></input>
+                <input type="submit" className="btn btn-success btn-sm" value="Login"></input>
+              </form>
+            </div>
+            <div className="log-sect">
+              <div className="open-links">Not signed up yet? <a href="#signup/">Click here</a></div>
+            </div>
           </div>
-          <form onSubmit={this.handleLoginSubmit}>
-            <label htmlFor="username">User Name</label>
-            <input onChange={this.handleUsernameChange} type="username" className="form-control log-entry" id="username" placeholder="Enter Username"></input>
-            <label htmlFor="password">Password</label>
-            <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter Password"></input>
-            <input type="submit" className="btn btn-warning btn-sm pull-right" value="Login"></input>
-          </form>
         </div>
-        <div className="row">
-          <div className="open-links">Not signed up yet? <a href="#signup/">Click here</a></div>
-        </div>
-      </div>
+    </div>
     )
   }
 });

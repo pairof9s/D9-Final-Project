@@ -12,6 +12,7 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
   box-sizing: border-box;
 }
 
+
 img {
   max-width: 100%;
 }
@@ -25,28 +26,135 @@ h1, h2, h3, h4 {
   font-family: 'Baloo', sans-serif;
 }
 
-h3 {
-  color: #FF672F;
-  margin-top: 10px;
+h5 {
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
+  color: #7D00CA;
 }
 
+// UNIVERSALS
+
+// Text hyperlinks
+a {
+  color: #FF672F;
+  text-decoration: none;
+
+  & a:hover {
+    text-decoration: underline;
+  }
+}
+
+// Page titles
+#page-title {
+  color: #7D00CA;
+}
+
+// Page logo (responsive)
 .icon-third img {
   width: 30%;
   margin-top: 30px;
 }
 
-#page-title {
-  color: #7D00CA;
+.icon-lrg img {
+  width: 80%;
+  margin-top: 10px;
 }
 
+// Section titles
+h3 {
+  color: #FF672F;
+  margin-top: 10px;
+}
+
+// FORMS
+// Form titles
 #form-title {
   color: #7D00CA;
 }
 
+// Form labels
+.control-label {
+  color: #666;
+}
+
+// Form menus
+.form-control {
+  color: #999;
+}
+
+// Form buttons
+.btn-success {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: white;
+  background-color: #7D00CA;
+  border: 1px solid #7D00CA;
+}
+
+.btn-success:hover {
+  color: white;
+  background-color: #9662D0;
+  border: 1px solid #9662D0;
+}
+
+.btn-success:active {
+  color: #9662D0;
+  background-color: #7D00CA;
+  border: 1px solid #7D00CA;
+}
+
+.btn-info {
+  margin-top: 6px;
+  margin-bottom: 6px;
+  color: white;
+  background-color: #9662D0;
+  border: 1px solid #9662D0;
+
+  & .glyphicon {
+    font-size: 1.2em;
+    margin-left: 4px;
+    vertical-align: text-top;
+  }
+}
+
+.btn-info:hover {
+  color: white;
+  background-color: #7D00CA;
+  border: 1px solid #7D00CA;
+}
+
+.btn-info:active {
+  color: #9662D0;
+  background-color: #9662D0;
+  border: 1px solid #9662D0;
+}
+
+.pull-right {
+  margin-right: 14px;
+}
+
+// Content copy
+p {
+  font-size: 1em;
+  font-weight: 400;
+  color: #666;
+}
+
+// Section horiz lines
 .sect-sep {
   border-bottom: 1px solid #7D00CA;
   margin-bottom: 10px;
+  margin-top: 6px;
 }
+
+.signup-sect {
+  margin-top: 20px;
+  margin-left: 0;
+}
+
+
+// Signup & Group sections
 
 .panel {
   border: 1px solid #FF672F;
@@ -55,51 +163,11 @@ h3 {
     color: white;
     background-color: #FF672F;
   }
-
   table {
     margin: 0;
     padding: 0;
     color: #7D00CA;
   }
-
-}
-
-.signup-sect {
-  margin-top: 20px;
-  margin-left: 0;
-}
-
-.btn-warning {
-  margin-top: 6px;
-  margin-bottom: 6px;
-  color: white;
-  background-color: #FF672F;
-  border: 1px solid #FF672F;
-}
-
-.btn-success {
-  color: white;
-  background-color: #FF672F;
-  border: 1px solid #FF672F;
-  margin-bottom: 20px;
-}
-
-.btn-success:hover {
-  color: #FF672F;
-  background-color: #FEB08E;
-  border: 1px solid #FEB08E;
-}
-
-.btn-success:active {
-  color: #FF672F;
-  background-color: #FEB08E;
-  border: 1px solid #FEB08E;
-}
-
-.btn-primary:focus {
-  color: white;
-  background-color: #FF672F;
-  border: 1px solid #FF672F;
 }
 
 .panel-body {
@@ -130,11 +198,75 @@ h3 {
     text-decoration: underline;
   }
 }
+
+
+// Miscellaneous
+.wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.log-top {
+  padding: 20px 0 0 0;
+  margin: -31px -31px 0 -31px;
+  height: 210px;
+  color: white;
+  background-color: #FF672F;
+  overflow: hidden;
+
+  & img {
+    margin: auto;
+    display: block;
+  }
+  & p {
+    padding: 8px 18px;
+    color: white;
+    font-size: 1em;
+    text-align: left;
+  }
+  & a {
+    color: #7D00CA;
+    text-decoration: none;
+  }
+  & a:hover {
+    text-decoration: underline;
+  }
+}
+.log-frame {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 1px solid #FF672F;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.log-sect {
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.log-entry {
+  margin-bottom: 10px;
+}
+
+
+// Color palette
 .orange-box {
   background-color: #FF672F;
-  color: #9662D0;
+}
+
+.lightOrange-box {
+  background-color: #FEB08E;
 }
 
 .purple-box {
   background-color: #7D00CA;
+}
+
+.lightPurple-box {
+  background-color: #9662D0;
 }

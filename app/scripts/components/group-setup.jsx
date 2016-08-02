@@ -60,7 +60,7 @@ var GroupSetup = React.createClass({
         <div className="icon-third"><img src="images/PoolParty_logo.png"></img></div>
         <div><h1 id="page-title">Welcome, David!</h1></div>
         <div className="sect-sep">
-          <p>Now that you're a Pool Party member, let's start with creating a Group. The Students you'll see listed below live within a 2-mile radius of your home. This makes it convenient for both them and you to join together.</p>
+          <p>Now that you’re a Pool Party member, let’s start with creating a Group. The Students you’ll see listed below live within a 2-mile radius of your home. This makes it convenient for both them and you to join together.</p>
         </div>
         <div className="row col-sm-9">
           <div className="panel panel-success">
