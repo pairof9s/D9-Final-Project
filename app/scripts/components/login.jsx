@@ -38,11 +38,11 @@ var LoginForm = React.createClass({
   render: function(){
     return (
       <div className="wrapper">
-        <div className="row col-md-3">
+        <div className="row col-sm-6 col-md-4 col-lg-3">
           <div className="log-frame">
             <div className="log-top">
               <div className="icon-lrg">
-                <img src="images/PoolParty_whitelog.png"></img>
+                <img src="images/PoolParty_logo_tag.png"></img>
               </div>
               <div>
                 <p>Welcome! Login to join your Group or to get a new one started. <a href="#signup/">Click here</a> if you’re looking to join!</p>
@@ -50,7 +50,7 @@ var LoginForm = React.createClass({
             </div>
             <div className="log-sect">
               <div>
-                <h4 id="form-title"><span className="glyphicon glyphicon-log-in log-icon"></span>Log In...</h4>
+                <h3 id="form-title">Log In...</h3>
               </div>
               <form onSubmit={this.handleLoginSubmit}>
                 <label htmlFor="username">User Name</label>
@@ -65,7 +65,17 @@ var LoginForm = React.createClass({
             </div>
           </div>
         </div>
-    </div>
+        <div className="col-sm-6 col-lg-offset-1 col-lg-5">
+          <div className="log-info">
+            <p>One of the hardest aspects of your children attending school is getting them there and back! Often, there is no easy way for you personally to transport them, and even harder to find other parents who might have interest in a car pool to lessen the daily commitment.</p>
+            <p>That’s where Pool Party comes in.</p>
+            <p>With Pool Party, you just sign up by telling us some brief information about you & your child, their school, and then we send you an invitation to register and get started.</p>
+            <p>Within no time, you can create your own car pool group, have a schedule set up , and be provided with directions on where each Group member lives…and all based on the school your child attends and convenience to where you live.</p>
+            <p>So sign up today and we’ll provide you with information on how to quickly become a member of your own car pool!</p>
+            <p>Let’s get this Pool Party started!</p>
+          </div>
+        </div>
+      </div>
     )
   }
 });

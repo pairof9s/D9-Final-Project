@@ -33,6 +33,13 @@ h5 {
   color: #7D00CA;
 }
 
+h6 {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+}
+
 // UNIVERSALS
 
 // Text hyperlinks
@@ -102,6 +109,21 @@ h3 {
   color: #9662D0;
   background-color: #7D00CA;
   border: 1px solid #7D00CA;
+  box-shadow: none;
+}
+
+
+.btn-success.active {
+  color: #9662D0;
+  background-color: #7D00CA;
+  border: 1px solid #7D00CA;
+  box-shadow: none;
+}
+
+.btn-success:focus {
+  color: white;
+  background-color: #9662D0;
+  border: 1px solid #9662D0;
 }
 
 .btn-info {
@@ -182,15 +204,15 @@ p {
 
 .log-icon {
   margin-right: 6px;
-  color: #FF672F;
+  color: white;
 }
 
 .open-links {
   font-size: .85em;
-  color: #666;
+  color: white;
 
   & a {
-    color: #FF672F;
+    color: #7D00CA;
     text-decoration: none;
   }
 
@@ -210,24 +232,25 @@ p {
 
 .log-top {
   padding: 20px 0 0 0;
-  margin: -31px -31px 0 -31px;
-  height: 210px;
-  color: white;
-  background-color: #FF672F;
-  overflow: hidden;
+  margin: -30px -30px 0 -30px;
+  min-height: 210px;
+  color: #666;
+  background-color: white;
+  border: 1px solid #FF672F;
+  border-radius: 10px;
 
   & img {
     margin: auto;
     display: block;
   }
   & p {
-    padding: 8px 18px;
-    color: white;
+    padding: 12px 18px;
+    color: #7D00CA;
     font-size: 1em;
     text-align: left;
   }
   & a {
-    color: #7D00CA;
+    color: #FF672F;
     text-decoration: none;
   }
   & a:hover {
@@ -237,10 +260,31 @@ p {
 .log-frame {
   width: 100%;
   height: 100%;
-  margin: 0;
   border: 1px solid #FF672F;
   border-radius: 10px;
+  background-color: #FF672F;
   padding: 30px;
+}
+
+.log-info {
+  position: relative;
+  float: right;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 2px solid #FF672F;
+  border-radius: 10px;
+  padding: 30px;
+  background-color: #FF672F;
+
+  & p {
+    color: white;
+  }
+}
+
+.log-box {
+  position: relative;
+  float: left;
 }
 
 .log-sect {
