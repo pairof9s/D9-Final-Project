@@ -222,6 +222,12 @@ p {
 }
 
 
+// Map & Schedule section
+#map {
+  height: 100%;
+  border: 1px solid #7D00CA;
+}
+
 // Miscellaneous
 .wrapper {
   align-items: center;
@@ -279,6 +285,9 @@ p {
 
   & p {
     color: white;
+  }
+  & img {
+    padding: 5px;
   }
 }
 

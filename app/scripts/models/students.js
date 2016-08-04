@@ -50,7 +50,6 @@ var Session = Backbone.Model.extend({
        self.trigger('authenticationSucceeded');
      });
    } else {
-     // I'm authenticating with a sessionToken
      var user = new User(options);
      this.set('currentUser', user);
      this.trigger('authenticationSucceeded');

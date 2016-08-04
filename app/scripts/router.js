@@ -6,7 +6,7 @@ var LoginForm = require('./components/login.jsx');
 var Signup = require('./components/signup.jsx')
 // var RegisterForm = require('./components/register.jsx');
 var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
-// var ScheduleMap = require('./components/schedules.jsx');
+var GroupMap = require('./components/schedules.jsx').GroupMap;
 
 
 var Router = Backbone.Router.extend({
@@ -16,7 +16,7 @@ var Router = Backbone.Router.extend({
     'signup/': 'signupController',
     'groups/': 'groupCreate',
     'groups/:id/edit/': 'groupAddChange',
-    // 'schedules/': 'scheduleController'
+    'schedules/': 'scheduleController'
   },
   // initialize: function(){
   //
@@ -55,13 +55,13 @@ var Router = Backbone.Router.extend({
       document.getElementById('container')
     );
   },
-  // scheduleController: function(){
-  //   var self = this;
-  //   ReactDOM.render(
-  //     React.createElement(ScheduleMap, {router: self}),
-  //     document.getElementById('container')
-  //   );
-  // },
+  scheduleController: function(){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(ScheduleMap, {router: self}),
+      document.getElementById('container')
+    );
+  },
 });
 
 var router = new Router();

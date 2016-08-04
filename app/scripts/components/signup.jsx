@@ -7,6 +7,17 @@ var User = require('../models/students');
 
 
 var Signup = React.createClass({
+  getInitialState: function(){
+    return {
+    };
+  },
+  componentWillMount: function(){
+    var self = this;
+  },
+  handleLoginSubmit: function(e){
+    e.preventDefault();
+    var self = this;
+  },
   render: function(){
     return (
       <div>
@@ -18,7 +29,7 @@ var Signup = React.createClass({
           </div>
         </div>
         <div className="row col-md-8">
-          <div className="row col-md-4">
+          <div className="row col-md-6">
             <h3>Is this your child?</h3>
             <h6>Johnny Nine</h6><p>Beck Middle School, Grade 6, Birth date: 05/22/2004</p>
           </div>
@@ -131,8 +142,7 @@ var Signup = React.createClass({
                       <label htmlFor="email1" className="control-label">Email</label>
                       <input type="email" value='' className="form-control" id="email1" placeholder="Enter email address..." />
                   </div>
-                  <button type="button" className="btn btn-info btn-sm" data-toggle="collapse" data-target="#second-form">Add Secondary Parent <span className="glyphicon glyphicon-plus-sign" /></button>
-                  <button type="submit" className="btn btn-success pull-right">Register</button>
+                  <button type="button" className="btn btn-info btn-sm" data-toggle="collapse" data-target="#second-form">Add Secondary Parent <span className="glyphicon glyphicon-plus-sign" />                </button>
                 </form>
               </div>
             </div>
@@ -228,10 +238,12 @@ var Signup = React.createClass({
                       <label htmlFor="email1" className="control-label">Email</label>
                       <input type="email" value='' className="form-control" id="email1" placeholder="Enter email address..." />
                   </div>
-                  <button type="submit" className="btn btn-success pull-right">Register</button>
                 </form>
               </div>
             </div>
+          </div>
+          <div className="col-md-6">
+            <button type="submit" className="btn btn-success pull-right">Register</button>
           </div>
         </section>
       </div>
