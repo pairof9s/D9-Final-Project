@@ -6,7 +6,7 @@ var LoginForm = require('./components/login.jsx');
 var Signup = require('./components/signup.jsx')
 // var RegisterForm = require('./components/register.jsx');
 var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
-var GroupMap = require('./components/schedules.jsx').GroupMap;
+var GroupMap = require('./components/map.jsx').GroupMap;
 
 
 var Router = Backbone.Router.extend({

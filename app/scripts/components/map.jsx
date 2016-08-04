@@ -14,14 +14,11 @@ var GroupMap = React.createClass({
 
     };
   },
-  makeMap: function(){
-    var map;
-    function initMap() {
-      map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 34.851925, lng: -82.399949},
-        zoom: 8
-      });
-    }
+  componentDidMount(){
+    map = new google.maps.Map(document.getElementById('map'), {
+      center: {lat: 34.851925, lng: -82.399949},
+      zoom: 8
+    });
   },
   render: function(){
     return (
@@ -43,6 +40,20 @@ var GroupMap = React.createClass({
   }
 });
 
+export class Container extends React.Component {
+  render() {
+    if (!this.props.loaded) {
+      return <div>Loading...</div>
+    }
+    return (
+      <div>Map will go here</div>
+    )
+  }
+}
+
+export default GoogleApiComponent({
+  apiKey: __GAPI_KEY__
+})(Container)
 
 module.exports = GroupMap;
 
