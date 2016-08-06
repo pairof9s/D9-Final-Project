@@ -2,6 +2,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 
+var Welcome = require('./components/welcome.jsx');
 var LoginForm = require('./components/login.jsx');
 var Signup = require('./components/signup.jsx')
 // var RegisterForm = require('./components/register.jsx');
@@ -11,7 +12,7 @@ var GroupMap = require('./components/map.jsx').GroupMap;
 
 var Router = Backbone.Router.extend({
   routes: {
-    '': 'loginController',
+    '': 'welcomeController',
     'login/': 'loginController',
     'signup/': 'signupController',
     'groups/': 'groupCreate',
@@ -21,6 +22,13 @@ var Router = Backbone.Router.extend({
   // initialize: function(){
   //
   // },
+  welcomeController: function(){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(Welcome, {router: self}),
+      document.getElementById('container')
+    )
+  },
   loginController: function(){
     var self = this;
     ReactDOM.render(

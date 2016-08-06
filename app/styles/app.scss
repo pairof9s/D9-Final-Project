@@ -44,7 +44,7 @@ h6 {
 
 // Text hyperlinks
 a {
-  color: #FF672F;
+  color: #F28C13;
   text-decoration: none;
 
   & a:hover {
@@ -54,7 +54,7 @@ a {
 
 // Page titles
 #page-title {
-  color: #7D00CA;
+  color: #76E1E5;
 }
 
 // Page logo (responsive)
@@ -77,7 +77,7 @@ h3 {
 // FORMS
 // Form titles
 #form-title {
-  color: #7D00CA;
+  color: #76E1E5;
 }
 
 // Form labels
@@ -94,15 +94,16 @@ h3 {
 .btn-success {
   margin-top: 6px;
   margin-bottom: 6px;
-  color: white;
-  background-color: #7D00CA;
-  border: 1px solid #7D00CA;
+  color: #666;
+  background-color: #76E1E5;
+  border: 1px solid #76E1E5;
 }
 
 .btn-success:hover {
-  color: white;
-  background-color: #9662D0;
-  border: 1px solid #9662D0;
+  color: #222;
+  text-decoration: underline;
+  background-color: #B7F1F4;
+  border: 1px solid #B7F1F4;
 }
 
 .btn-success:active {
@@ -176,14 +177,75 @@ p {
 }
 
 
+// Welcome section
+.welc-wrap {
+
+  margin: 20 auto;
+  padding: 0;
+}
+
+.welc-logo {
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 2px solid #F28C13;
+  padding: 30px;
+  background-color: white;
+}
+
+.welc-login {
+  position: relative;
+  float: left;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 2px solid #F28C13;
+  padding: 30px;
+  background-color: #F28C13;
+}
+
+.welc-info {
+  position: relative;
+  float: right;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border: 2px solid #F28C13;
+  padding: 30px;
+  background-color: #F28C13;
+
+  & p {
+    color: white;
+  }
+  & img {
+    padding: 5px;
+  }
+}
+
+.welc-art {
+  position: relative;
+  float: right;
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  border: 2px solid #F28C13;
+  padding: 30px;
+  background-color: white;
+}
+
 // Signup & Group sections
 
 .panel {
-  border: 1px solid #FF672F;
+  border: 1px solid #F28C13;
 
   .panel-heading {
     color: white;
-    background-color: #FF672F;
+    background-color: #F28C13;
   }
   table {
     margin: 0;
@@ -198,8 +260,8 @@ p {
 
 .td-header-group {
   color: white;
-  background-color: #FF672F;
-  border: 1px solid #FF672F;
+  background-color: #F28C13;
+  border: 1px solid #F28C13;
 }
 
 .log-icon {
@@ -212,7 +274,7 @@ p {
   color: white;
 
   & a {
-    color: #7D00CA;
+    color: #666;
     text-decoration: none;
   }
 
@@ -242,7 +304,7 @@ p {
   min-height: 210px;
   color: #666;
   background-color: white;
-  border: 1px solid #FF672F;
+  border: 1px solid #F28C13;
   border-radius: 10px;
 
   & img {
@@ -256,7 +318,7 @@ p {
     text-align: left;
   }
   & a {
-    color: #FF672F;
+    color: #F28C13;
     text-decoration: none;
   }
   & a:hover {
@@ -266,9 +328,9 @@ p {
 .log-frame {
   width: 100%;
   height: 100%;
-  border: 1px solid #FF672F;
+  border: 1px solid #F28C13;
   border-radius: 10px;
-  background-color: #FF672F;
+  background-color: #F28C13;
   padding: 30px;
 }
 
@@ -278,10 +340,10 @@ p {
   width: 100%;
   height: 100%;
   margin: 0;
-  border: 2px solid #FF672F;
+  border: 2px solid #F28C13;
   border-radius: 10px;
   padding: 30px;
-  background-color: #FF672F;
+  background-color: #F28C13;
 
   & p {
     color: white;
@@ -322,4 +384,20 @@ p {
 
 .lightPurple-box {
   background-color: #9662D0;
+}
+
+.paleBlue-box {
+  background-color: #76E1E5;
+}
+
+.lightBlue-box {
+  background-color: #B7F1F4;
+}
+
+.paleOrange-box {
+  background-color: #F28C13;
+}
+
+.lighterOrange-box {
+  background-color: #FFC469;
 }

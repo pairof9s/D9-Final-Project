@@ -2,6 +2,13 @@ var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
+// var fs = require("fs");
+// var browserify = require("browserify");
+// browserify("./script.js")
+//   .transform("babelify", {presets: ["es2015", "react"]})
+//   .bundle()
+//   .pipe(fs.createWriteStream("bundle.js"));
+
 var models = require('../models/students');
 var User = require('../models/students');
 var Group = require('../models/groups');
@@ -11,14 +18,7 @@ var GroupCollection = require('../models/groups').GroupCollection;
 var GroupMap = React.createClass({
   getInitialState: function(){
     return {
-
     };
-  },
-  componentDidMount(){
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 34.851925, lng: -82.399949},
-      zoom: 8
-    });
   },
   render: function(){
     return (
@@ -30,30 +30,16 @@ var GroupMap = React.createClass({
         </div>
         <div className="row col-sm-9">
           <div>
-            <div className="col-md-6" id="map">{makeMap}</div>
+            <div><h3>Map Area</h3></div>
             <div>
               <h5>Schedule Area</h5>
             </div>
           </div>
+        </div>
       </div>
     )
   }
 });
-
-export class Container extends React.Component {
-  render() {
-    if (!this.props.loaded) {
-      return <div>Loading...</div>
-    }
-    return (
-      <div>Map will go here</div>
-    )
-  }
-}
-
-export default GoogleApiComponent({
-  apiKey: __GAPI_KEY__
-})(Container)
 
 module.exports = GroupMap;
 
