@@ -57,14 +57,14 @@ var GroupSetup = React.createClass({
   render: function(){
     return (
       <div className="col-md-10 group-table">
-        <div className="icon-third"><img src="images/PoolParty_logo.png"></img></div>
+        <div className="icon-third"><img src="images/PoolParty_purplelogtag.png"></img></div>
         <div><h1 id="page-title">Welcome, David!</h1></div>
         <div className="sect-sep">
           <p>Now that you’re a Pool Party member, let’s start with creating a Group. The Students you’ll see listed below live within a 2-mile radius of your home. This makes it convenient for both them and you to join together.</p>
         </div>
         <div className="row col-sm-9">
           <div className="panel panel-success">
-            <div className="panel-heading"><h4>Create A Group!</h4></div>
+            <div className="panel-heading"><h2><img src="./images/group.png" className="panel-art"/>Create A Group!</h2></div>
               <div className="panel-body">
                 <p>Select from the eligible students shown to form your potential car pool group. Do not select more than 4 potential students; Groups cannot consist of more than 5 members. Students with the name crossed through have already joined a group.</p>
                 <p>Once you’ve selected your group, name the group below. Then click the Create button. An email will be sent to each student’s parent(s) informing them of your wish to have them join your car pool. You will be notified once they have confirmed their participation.</p>

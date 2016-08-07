@@ -21,14 +21,14 @@ var Signup = React.createClass({
   render: function(){
     return (
       <div>
-        <div className="row col-md-8">
-          <div className="icon-third"><img src="images/PoolParty_logo.png"></img></div>
+        <div className="row col-md-offset-2 col-md-8">
+          <div className="icon-third"><img src="images/PoolParty_purplelog.png"></img></div>
           <div><h1 id="page-title">Register to join Pool Party</h1></div>
           <div className="sect-sep">
             <p>This is copy that instructs on how to register as a new user in Pool Party. You must know your child’s current school. Registration will require name, address, phone, and confirmation via email link provided.</p>
           </div>
         </div>
-        <div className="row col-md-8">
+        <div className="row col-md-offset-2 col-md-8">
           <div className="row col-md-6">
             <h3>Is this your child?</h3>
             <h6>Johnny Nine</h6><p>Beck Middle School, Grade 6, Birth date: 05/22/2004</p>
@@ -50,7 +50,7 @@ var Signup = React.createClass({
           </div>
         </div>
         <section className="row">
-          <div className="col-md-8">
+          <div className="col-md-offset-2 col-md-8">
             <div className="sect-sep"></div>
             <h3>Primary Parent’s Information:</h3>
             <div className="row col-md-8">
@@ -147,7 +147,7 @@ var Signup = React.createClass({
               </div>
             </div>
           </div>
-          <div className="col-md-8 collapse" id="second-form">
+          <div className="col-md-offset-2 col-md-8 collapse" id="second-form">
             <h3>Secondary Parent’s Information:</h3>
             <div className="row col-md-8">
               <div className="reg-form">

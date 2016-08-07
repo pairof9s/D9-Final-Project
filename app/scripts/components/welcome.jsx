@@ -12,18 +12,19 @@ var Welcome = React.createClass({
   render: function(){
     return (
       <div>
-        <div className="col-offset-md-2 col-md-8">
-          <div className="row col-md-6">
+        <div className="welc-area col-md-offset-3 col-md-6">
+          <div className="welc-box-b">
             <div className="welc-logo">
-              <div className="icon-lrg">
-                <img src="images/PoolParty_logo_tag.png"></img>
-              </div>
               <div>
-                <p>Welcome! Login to join your Group or to get a new one started. <a href="#signup/">Click here</a> if you’re looking to join!</p>
+                <img src="images/PoolParty_purplelogtag.png"></img>
+              </div>
+              <div className="log-copy">
+                <p>Welcome to the app that makes it easy to create and join a school car pool for you little students! Here’s <a href="#B">how it works...</a></p>
+                <p><a href="#signup/">Click here</a> if you’re wanting to join!</p>
               </div>
             </div>
           </div>
-          <div className="row col-md-6">
+          <div className="welc-box-a">
             <div className="welc-login">
               <div>
                 <h3 id="form-title">Log In...</h3>
@@ -39,7 +40,7 @@ var Welcome = React.createClass({
               </div>
             </div>
           </div>
-          <div className="row col-md-6">
+          <div className="welc-box-a">
             <div className="welc-info">
               <p>One of the hardest aspects of your children attending school is getting them there and back! Often, there is no easy way for you personally to transport them, and even harder to find other parents who might have interest in a car pool to lessen the daily commitment.</p>
               <p>That’s where Pool Party comes in.</p>
@@ -49,7 +50,7 @@ var Welcome = React.createClass({
               <p>Let’s get this Pool Party started!</p>
             </div>
           </div>
-          <div className="col-md-6">
+          <div className="welc-box-b">
             <div className="welc-art">
               <img src="./images/welcome.png" />
             </div>
