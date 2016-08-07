@@ -34,7 +34,7 @@ var Welcome = React.createClass({
                 <input onChange={this.handleUsernameChange} type="username" className="form-control log-entry" id="username" placeholder="Enter Username"></input>
                 <label htmlFor="password">Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter Password"></input>
-                <input type="submit" className="btn btn-success btn-sm pull-right" value="Login"></input>
+                <input type="submit" className="btn btn-success btn-sm" value="Login"></input>
               </form>
               <div className="open-links">Not signed up yet? <a href="#signup/">Click here</a>
               </div>
@@ -42,7 +42,7 @@ var Welcome = React.createClass({
           </div>
           <div className="welc-box-a">
             <div className="welc-info">
-              <p>One of the hardest aspects of your children attending school is getting them there and back! Often, there is no easy way for you personally to transport them, and even harder to find other parents who might have interest in a car pool to lessen the daily commitment.</p>
+              <a name="B" /><p>One of the hardest aspects of your children attending school is getting them there and back! Often, there is no easy way for you personally to transport them, and even harder to find other parents who might have interest in a car pool to lessen the daily commitment.</p>
               <p>That’s where Pool Party comes in.</p>
               <p>With Pool Party, you just sign up by telling us some brief information about you & your child, their school, and then we send you an invitation to register and get started.</p>
               <p>Within no time, you can create your own car pool group, have a schedule set up, and be provided with directions on where each Group member lives…and all based on the school your child attends and convenience to where you live.</p>

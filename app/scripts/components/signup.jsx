@@ -30,7 +30,7 @@ var Signup = React.createClass({
         </div>
         <div className="row col-md-offset-2 col-md-8">
           <div className="row col-md-6">
-            <h3>Is this your child?</h3>
+            <h2>Is this your child?</h2>
             <h6>Johnny Nine</h6><p>Beck Middle School, Grade 6, Birth date: 05/22/2004</p>
           </div>
           <div className="select-right col-md-2">
@@ -52,7 +52,7 @@ var Signup = React.createClass({
         <section className="row">
           <div className="col-md-offset-2 col-md-8">
             <div className="sect-sep"></div>
-            <h3>Primary Parent’s Information:</h3>
+            <h3><img src="./images/parents.png" className="panel-art" />Primary Parent’s Information:</h3>
             <div className="row col-md-8">
               <div className="reg-form">
                 <form className="col-xs-12">

@@ -66,7 +66,7 @@ var Router = Backbone.Router.extend({
   scheduleController: function(){
     var self = this;
     ReactDOM.render(
-      React.createElement(ScheduleMap, {router: self}),
+      React.createElement(GroupMap, {router: self}),
       document.getElementById('container')
     );
   },
