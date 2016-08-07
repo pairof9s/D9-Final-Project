@@ -143,6 +143,7 @@ h2, h3 {
 
 .btn-info:hover {
   color: white;
+  text-decoration: underline;
   background-color: #7D00CA;
   border: 1px solid #7D00CA;
 }
@@ -277,6 +278,8 @@ p {
   display: inline-block;
   margin-left: 10px;
   margin-right: 14px;
+  max-width: 75px;
+  max-height: 75px;
 }
 
 .td-header-group {
@@ -334,7 +337,6 @@ p {
   }
   & p {
     padding: 12px 18px;
-    color: #7D00CA;
     font-size: 1em;
     text-align: left;
   }

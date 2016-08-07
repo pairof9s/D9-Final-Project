@@ -45,7 +45,7 @@ var LoginForm = React.createClass({
                 <img src="images/PoolParty_purplelogtag.png"></img>
               </div>
               <div>
-                <p>Welcome! Login to join your Group or to get a new one started. <a href="#signup/">Click here</a> if you’re looking to join!</p>
+                <p>Welcome! Sign on to join your Group, or to create a new one if this is your first login.</p>
               </div>
             </div>
             <div className="log-sect">

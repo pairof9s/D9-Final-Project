@@ -29,7 +29,7 @@ var onSelectAll;
 var selectRowProp = {
     mode: "checkbox",
     clickToSelect: true,
-    bgColor: "#FEB08E",
+    bgColor: "#FFC469",
     onSelect: onRowSelect,
     onSelectAll: onSelectAll
   };

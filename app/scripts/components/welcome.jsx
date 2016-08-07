@@ -19,7 +19,7 @@ var Welcome = React.createClass({
                 <img src="images/PoolParty_purplelogtag.png"></img>
               </div>
               <div className="log-copy">
-                <p>Welcome to the app that makes it easy to create and join a school car pool for you little students! Here’s <a href="#B">how it works...</a></p>
+                <p>Welcome to the app that makes it easy to create and join a school car pool for your little students! Here’s <a href="#B">how it works...</a></p>
                 <p><a href="#signup/">Click here</a> if you’re wanting to join!</p>
               </div>
             </div>
