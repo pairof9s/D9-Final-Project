@@ -1,3 +1,4 @@
+// Script cache for Google Maps in ES5
 let counter = 0;
 let scriptMap = new Map();
 

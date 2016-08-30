@@ -1,4 +1,4 @@
-var React = require('react');
+ var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
@@ -50,14 +50,46 @@ var Signup = React.createClass({
   componentWillMount: function(){
     var self = this;
   },
-  handleLoginSubmit: function(e){
+  handleSignupSubmit: function(e){
     e.preventDefault();
     var self = this;
+    document.getElementById('heading').scrollIntoView();
+    self.setState({ type: 'info', message: 'Sending...' }, self.sendFormData);
   },
   handleClick: function() {
       this.setState({ show: !this.state.show });
   },
+  sendFormData: function () {
+    // Fetch form values.
+    var formData = {
+      budget: React.findDOMNode(this.refs.budget).value,
+      company: React.findDOMNode(this.refs.company).value,
+      email: React.findDOMNode(this.refs.email).value
+    };
+
+    // Send the form data.
+    var xmlhttp = new XMLHttpRequest();
+    var _this = this;
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState === 4) {
+        var response = JSON.parse(xmlhttp.responseText);
+        if (xmlhttp.status === 200 && response.status === 'OK') {
+          _this.setState({ type: 'success', message: 'We have received your message and will get in touch shortly. Thanks!' });
+        }
+        else {
+          _this.setState({ type: 'danger', message: 'Sorry, there has been an error. Please try again later or send us an email at info@example.com.' });
+        }
+      }
+    };
+    xmlhttp.open('POST', 'send', true);
+    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xmlhttp.send(this.requestBuildQueryString(formData));
+  },
   render: function(){
+    if (this.state.type && this.state.message) {
+    var classString = 'alert alert-' + this.state.type;
+    var status = <div id="status" className={classString} ref="status">{this.state.message}</div>;
+    }
     return (
       <div>
         <div className="row col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
@@ -68,24 +100,28 @@ var Signup = React.createClass({
           </div>
         </div>
         <div className="row col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-          <div className="row col-md-6">
-            <h2>Is this your child?</h2>
-            <h6>Johnny Nine</h6><p>Beck Middle School, Grade 6, Birth date: 05/22/2004</p>
+          <div>
+            <h2>Select your child!</h2>
           </div>
-          <div className="select-right col-md-2">
-            <div className="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="true" checked />
-                Yes
-              </label>
-            </div>
-            <div className="radio">
-              <label>
-                <input type="radio" name="optionsRadios" id="optionsRadios2" value="false" />
-                No/Not Shown
-              </label>
-            </div>
-            <button type="submit" className="btn btn-success btn-sm">Confirm</button>
+          <div className="form-group col-xs-6 col-md-3">
+            <label htmlFor="student" className="control-label">Find their name:</label>
+            <select type="text" value='student' className="form-control" id="student">
+              <option>Select one...</option>
+              <option>Johnny Nine</option>
+              <option>Wanda Full</option>
+              <option>Joe Kerr</option>
+              <option>Syd Nee</option>
+              <option>Jane Plane</option>
+              <option>Tye Neetym</option>
+              <option>Ben Dumm</option>
+              <option>Robin DeRitch</option>
+              <option>Tom Meie</option>
+              <option>Sally Mander</option>
+              <option>Frank Lee</option>
+              <option>Deb Utawnt</option>
+              <option>Jack Spratt</option>
+              <option>Sally Mow</option>
+            </select>
           </div>
         </div>
         <section className="row">
@@ -95,7 +131,7 @@ var Signup = React.createClass({
               <h3><img src="./images/parents.png" className="panel-art" />Primary Parent’s Information:</h3>
               <div className="row col-md-8">
                 <div className="reg-form">
-                  <form className="col-xs-12">
+                  <form className="col-xs-12" action="" onSubmit={this.handleSignupSubmit}>
                     <div className="form-group col-xs-6 col-md-6">
                         <label htmlFor="firstname1" className="control-label">First Name</label>
                         <input type="text" value='' className="form-control" id="firstname1" placeholder="First name..." />

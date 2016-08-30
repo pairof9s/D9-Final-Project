@@ -1,3 +1,4 @@
+// Google Map API for ES5
 export const GoogleApi = function(opts) {
   opts = opts || {}
 

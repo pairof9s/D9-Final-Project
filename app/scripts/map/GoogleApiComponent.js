@@ -1,3 +1,4 @@
+// Google Map API Component
 import React, { PropTypes as T } from 'react'
 import ReactDOM from 'react-dom'
 
