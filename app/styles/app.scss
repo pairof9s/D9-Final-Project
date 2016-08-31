@@ -59,7 +59,8 @@ a {
 
 // Page logo (responsive)
 .icon-third img {
-  width: 30%;
+  width: 40%;
+  min-width: 180px;
   margin-top: 30px;
 }
 
@@ -88,6 +89,10 @@ h2, h3 {
 // Form menus
 .form-control {
   color: #999;
+}
+
+.name-menu {
+  width: 50%;
 }
 
 // Form buttons
