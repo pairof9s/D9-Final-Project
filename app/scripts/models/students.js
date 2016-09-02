@@ -1,16 +1,13 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
 var Backbone = require('backbone');
 
 
 var User = Backbone.Model.extend({
   idAttribute: 'objectId',
-
   urlRoot: function() {
     if(localStorage.getItem('parse-session-token')) {
-      return "https://d9-dev-server.herokuapp.com/classes/D9users/me/";
+      return "https://d9-dev-server.herokuapp.com/classes/D9students/me/";
     } else {
-      return "https://d9-dev-server.herokuapp.com/classes/D9users";
+      return "https://d9-dev-server.herokuapp.com/classes/D9students";
     }
   }
 });
@@ -22,7 +19,7 @@ var Session = Backbone.Model.extend({
    if(localStorage.getItem('parse-session-token')) {
      return "https://d9-dev-server.herokuapp.com/classes/D9sessions/me/";
    } else {
-     return "https://d9-dev-server.herokuapp.com/classes/D9users";
+     return "https://d9-dev-server.herokuapp.com/classes/D9students";
    }
  },
  authenticate(options) {
@@ -32,7 +29,7 @@ var Session = Backbone.Model.extend({
      jQuery.ajax({
        url: "https://d9-dev-server.herokuapp.com/classes/D9login",
        data: {
-         username: options.username,
+         email1: options.email1,
          password: options.password
        }
      }).then(function(response){
@@ -76,16 +73,16 @@ var Session = Backbone.Model.extend({
 });
 
 
-var StudentCollection = Backbone.Collection.extend({
-  model: User,
-  url: 'https://d9-dev-server.herokuapp.com/classes/D9students/',
-  parser: function(serverResponse){
-  return serverResponse.results;
- }
-});
-
 module.exports = {
-  'User': User,
-  'StudentCollection': StudentCollection,
-  'Session': Session
+  User: User,
+  Session: Session
 };
+
+
+// var StudentCollection = Backbone.Collection.extend({
+//   model: User,
+//   url: 'https://d9-dev-server.herokuapp.com/classes/D9students/',
+//   parser: function(serverResponse){
+//   return serverResponse.results;
+//  }
+// });

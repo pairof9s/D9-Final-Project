@@ -8,7 +8,8 @@ var Session = require('../models/students').Session;
 var LoginForm = React.createClass({
   getInitialState: function(){
     return {
-      'username': '',
+      'email1': '',
+      'email2': '',
       'password': ''
     };
   },
@@ -21,7 +22,7 @@ var LoginForm = React.createClass({
 
     var session = new Session();
     session.authenticate({
-      username: this.state.username,
+      email1: this.state.email1,
       password: this.state.password
     });
 
@@ -33,7 +34,7 @@ var LoginForm = React.createClass({
     this.setState({password: e.target.value})
   },
   handleUsernameChange: function(e){
-    this.setState({username: e.target.value})
+    this.setState({email1: e.target.value})
   },
   render: function(){
     return (
@@ -53,8 +54,8 @@ var LoginForm = React.createClass({
                 <h3 id="form-title">Log In...</h3>
               </div>
               <form onSubmit={this.handleLoginSubmit}>
-                <label htmlFor="username">User Name</label>
-                <input onChange={this.handleUsernameChange} type="username" className="form-control log-entry" id="username" placeholder="Enter Username"></input>
+                <label htmlFor="email1">User Email</label>
+                <input onChange={this.handleUsernameChange} type="email1" className="form-control log-entry" id="email1" placeholder="Enter Email Address"></input>
                 <label htmlFor="password">Password</label>
                 <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter Password"></input>
                 <input type="submit" className="btn btn-success btn-sm" value="Login"></input>

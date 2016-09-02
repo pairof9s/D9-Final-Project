@@ -2,6 +2,8 @@ var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
+var User = require('../models/students').User;
+
 
 function isDefined(val) { return val != null; }
 
@@ -38,115 +40,139 @@ var ToggleDisplay = React.createClass({
 			<span style={style} {...this.props} />
 		);
 	}
-
 });
 
 var Signup = React.createClass({
   getInitialState: function(){
     return {
-      show: true
+			show: true,
+			student: '',
+			password: '',
+			firstname1: '',
+			lastname1: '',
+			street1: '',
+			city1: '',
+			state1: '',
+			zip1: '',
+			phone1: '',
+			email1: '',
+			firstname2: '',
+			lastname2: '',
+			street2: '',
+			city2: '',
+			state2: '',
+			zip2: '',
+			phone2: '',
+			email2: '',
     };
   },
   componentWillMount: function(){
     var self = this;
   },
-  handleSignupSubmit: function(e){
+	handleSignupSubmit: function(e){
     e.preventDefault();
     var self = this;
-    document.getElementById('heading').scrollIntoView();
-    self.setState({ type: 'info', message: 'Sending...' }, self.sendFormData);
-  },
-  handleClick: function() {
-      this.setState({ show: !this.state.show });
-  },
-  sendFormData: function () {
-    // Fetch form values.
-    var formData = {
-      budget: React.findDOMNode(this.refs.budget).value,
-      company: React.findDOMNode(this.refs.company).value,
-      email: React.findDOMNode(this.refs.email).value
-    };
+		var student = $('#new-student').val();
+		var password = $('#new-password').val();
+		var firstname1 = $('#new-firstname1').val();
+		var lastname1 = $('#new-lastname1').val();
+		var street1 = $('#new-street1').val();
+		var city1 = $('#new-city1').val();
+		var state1 = $('#new-state1').val();
+		var zip1 = $('#new-zip1').val();
+		var phone1 = $('#new-phone1').val();
+    var email1 = $('#new-email1').val();
+		var firstname2 = $('#new-firstname2').val();
+		var lastname2 = $('#new-lastname2').val();
+		var street2 = $('#new-street2').val();
+		var city2 = $('#new-city2').val();
+		var state2 = $('#new-state2').val();
+		var zip2 = $('#new-zip2').val();
+		var phone2 = $('#new-phone2').val();
+		var email2 = $('#new-email2').val();
 
-    // Send the form data.
-    var xmlhttp = new XMLHttpRequest();
-    var _this = this;
-    xmlhttp.onreadystatechange = function() {
-      if (xmlhttp.readyState === 4) {
-        var response = JSON.parse(xmlhttp.responseText);
-        if (xmlhttp.status === 200 && response.status === 'OK') {
-          _this.setState({ type: 'success', message: 'We have received your message and will get in touch shortly. Thanks!' });
-        }
-        else {
-          _this.setState({ type: 'danger', message: 'Sorry, there has been an error. Please try again later or send us an email at info@example.com.' });
-        }
-      }
-    };
-    xmlhttp.open('POST', 'send', true);
-    xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xmlhttp.send(this.requestBuildQueryString(formData));
+    var user = new User();
+    user.set({'student': student, 'password': password, 'firstname1': firstname1, 'lastname1': lastname1, 'street1': street1, 'city1': city1, 'state1': state1, 'zip1': zip1, 'phone1': phone1, 'email1': email1, 'firstname2': firstname2, 'lastname2': lastname2, 'street2': street2, 'city2': city2, 'state2': state2, 'zip2': zip2, 'phone2': phone2, 'email2': email1});
+
+    user.save().done(function(){
+    self.props.router.navigate('#', {trigger: true})
+    }).fail(function(){
+      alert('Inproper Sign Up. Check your email address and/or password.')
+    });
   },
+	handleClick: function() {
+	    this.setState({ show: !this.state.show });
+	},
   render: function(){
-    if (this.state.type && this.state.message) {
-    var classString = 'alert alert-' + this.state.type;
-    var status = <div id="status" className={classString} ref="status">{this.state.message}</div>;
-    }
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-          <div className="row icon-third"><img src="images/PoolParty_purplelog.png"></img></div>
-          <div className="row"><h1 id="page-title">Register to join Pool Party</h1></div>
-          <div className="row sect-sep">
+          <div className="icon-third"><img src="images/PoolParty_purplelog.png"></img></div>
+          <div>
+						<h1 id="page-title">Register to join Pool Party</h1>
+					</div>
+          <div className="sect-sep">
             <p>This is copy that instructs on how to register as a new user in Pool Party. You must know your child’s current school. Registration will require name, address, phone, and confirmation via email link provided.</p>
           </div>
         </div>
-        <form className="" action="" onSubmit={this.handleSignupSubmit}>
+        <form onSubmit={this.handleSignupSubmit}>
           <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-            <div className="row">
-              <h2>First, select your child!</h2>
+            <div>
+              <h2>First, select your child..</h2>
             </div>
-            <div className="row name-menu form-group">
-              <select type="text" value='student' className="form-control" id="student">
-                <option>Find their name...</option>
-                <option>Johnny Nine</option>
-                <option>Wanda Full</option>
-                <option>Joe Kerr</option>
-                <option>Syd Nee</option>
-                <option>Jane Plane</option>
-                <option>Tye Neetym</option>
-                <option>Ben Dumm</option>
-                <option>Robin DeRitch</option>
-                <option>Tom Meie</option>
-                <option>Sally Mander</option>
-                <option>Frank Lee</option>
-                <option>Deb Utawnt</option>
-                <option>Jack Spratt</option>
-                <option>Sally Mow</option>
-              </select>
+            <div className="row form-group">
+							<div className="col-sm-4">
+	              <select type="text" className="form-control" id="new-student">
+	                <option>Find their name...</option>
+	                <option>Johnny Nine</option>
+	                <option>Wanda Full</option>
+	                <option>Joe Kerr</option>
+	                <option>Syd Nee</option>
+	                <option>Jane Plane</option>
+	                <option>Tye Neetym</option>
+	                <option>Ben Dumm</option>
+	                <option>Robin DeRitch</option>
+	                <option>Tom Meie</option>
+	                <option>Sally Mander</option>
+	                <option>Frank Lee</option>
+	                <option>Deb Utawnt</option>
+	                <option>Jack Spratt</option>
+	                <option>Sally Mow</option>
+	              </select>
+							</div>
             </div>
+						<div>
+							<h2>..then create a password</h2>
+						</div>
+						<div className="row form-group">
+							<div className="col-sm-4">
+								<input type="password" className="form-control" id="new-password" placeholder="Minimum of 6 characters" />
+							</div>
+						</div>
+						<div className="sect-sep"></div>
             <div className="row">
-              <div className="sect-sep"></div>
               <h3><img src="./images/parents.png" className="panel-art" />Primary Parent’s Information:</h3>
               <div className="col-md-10">
                 <div className="form-group col-xs-6 col-md-6">
-                    <label htmlFor="firstname1" className="control-label">First Name</label>
-                    <input type="text" value='' className="form-control" id="firstname1" placeholder="First name..." />
+                    <label htmlFor="new-firstname1" className="control-label">First Name</label>
+                    <input type="text" className="form-control" id="new-firstname1" placeholder="First name..." />
                 </div>
                 <div className="form-group col-xs-6 col-md-6">
-                    <label htmlFor="lastname1" className="control-label">Last Name</label>
-                    <input type="text" value='' className="form-control" id="lastname1" placeholder="Last name..." />
+                    <label htmlFor="new-lastname1" className="control-label">Last Name</label>
+                    <input type="text" className="form-control" id="new-lastname1" placeholder="Last name..." />
                 </div>
                 <div className="form-group col-xs-12">
-                  <label htmlFor="street1" className="control-label">Street Address</label>
-                  <input type="text" value='' className="form-control" id="street1" placeholder="Street address (no P.O. Box)" />
+                  <label htmlFor="new-street1" className="control-label">Street Address</label>
+                  <input type="text" className="form-control" id="new-street1" placeholder="Street address (no P.O. Box)" />
                 </div>
                 <div className="form-group col-xs-4 col-md-4">
-                    <label htmlFor="city1" className="control-label">City</label>
-                    <input type="text" value='' className="form-control" id="city1" placeholder="City..." />
+                    <label htmlFor="new-city1" className="control-label">City</label>
+                    <input type="text" className="form-control" id="new-city1" placeholder="City..." />
                 </div>
                 <div className="form-group col-xs-4 col-md-4">
-                    <label htmlFor="state1" className="control-label">State</label>
-                    <select type="text" value='state' className="form-control" id="state1">
-                      <option value="">Select...</option>
+                    <label htmlFor="new-state1" className="control-label">State</label>
+                    <select type="text" className="form-control" id="new-state1">
+                      <option>Select...</option>
                       <option value="AK">Alaska</option>
                       <option value="AL">Alabama</option>
                       <option value="AR">Arkansas</option>
@@ -202,16 +228,16 @@ var Signup = React.createClass({
                     </select>
                   </div>
                   <div className="form-group col-xs-4 col-md-4">
-                      <label htmlFor="zip1" className="control-label">Zip Code</label>
-                      <input type="text" value='' className="form-control" id="zip1" placeholder="00000" />
+                      <label htmlFor="new-zip1" className="control-label">Zip Code</label>
+                      <input type="text" className="form-control" id="new-zip1" placeholder="00000" />
                   </div>
                   <div className="form-group col-xs-6">
-                      <label htmlFor="phone1" className="control-label">Primary Phone</label>
-                      <input type="text" value='' className="form-control" id="phone1" placeholder="000-000-0000" />
+                      <label htmlFor="new-phone1" className="control-label">Primary Phone</label>
+                      <input type="text" className="form-control" id="new-phone1" placeholder="000-000-0000" />
                   </div>
                   <div className="form-group col-xs-6">
-                      <label htmlFor="email1" className="control-label">Email</label>
-                      <input type="email" value='' className="form-control" id="email1" placeholder="parent1@address.com" />
+                      <label htmlFor="new-email1" className="control-label">Email</label>
+                      <input type="email" className="form-control" id="new-email1" placeholder="parent1@address.com" />
                   </div>
                   <button type="button" className="btn btn-info btn-sm pull-right" onClick={ this.handleClick }>Add Secondary Parent <span className="glyphicon glyphicon-plus-sign" /></button>
               </div>
@@ -222,25 +248,25 @@ var Signup = React.createClass({
                 <h3><img src="./images/parents2.png" className="panel-art" />Secondary Parent’s Information:</h3>
                 <div className="col-md-10">
                     <div className="form-group col-xs-6 col-md-6">
-                        <label htmlFor="firstname2" className="control-label">First Name</label>
-                        <input type="text" value='' className="form-control" id="firstname2" placeholder="First name..." />
+                        <label htmlFor="new-firstname2" className="control-label">First Name</label>
+                        <input type="text" className="form-control" id="new-firstname2" placeholder="First name..." />
                     </div>
                     <div className="form-group col-xs-6 col-md-6">
-                        <label htmlFor="lastname2" className="control-label">Last Name</label>
-                        <input type="text" value='' className="form-control" id="lastname2" placeholder="Last name..." />
+                        <label htmlFor="new-lastname2" className="control-label">Last Name</label>
+                        <input type="text" className="form-control" id="new-lastname2" placeholder="Last name..." />
                     </div>
                     <div className="form-group col-xs-12">
-                      <label htmlFor="street2" className="control-label">Street Address</label>
-                      <input type="text" value='' className="form-control" id="street2" placeholder="Street address (no P.O.)..." />
+                      <label htmlFor="new-street2" className="control-label">Street Address</label>
+                      <input type="text" className="form-control" id="new-street2" placeholder="Street address (no P.O.)..." />
                     </div>
                     <div className="form-group col-xs-4 col-md-4">
-                        <label htmlFor="city2" className="control-label">City</label>
-                        <input type="text" value='' className="form-control" id="city2" placeholder="City..." />
+                        <label htmlFor="new-city2" className="control-label">City</label>
+                        <input type="text" className="form-control" id="new-city2" placeholder="City..." />
                     </div>
                     <div className="form-group col-xs-4 col-md-4">
-                      <label htmlFor="state2" className="control-label">State</label>
-                      <select type="text" value='state' className="form-control" id="state2">
-                        <option value="">Select...</option>
+                      <label htmlFor="new-state2" className="control-label">State</label>
+                      <select type="text" className="form-control" id="new-state2">
+                        <option>Select...</option>
                         <option value="AK">Alaska</option>
                         <option value="AL">Alabama</option>
                         <option value="AR">Arkansas</option>
@@ -296,16 +322,16 @@ var Signup = React.createClass({
                       </select>
                     </div>
                     <div className="form-group col-xs-4 col-md-4">
-                        <label htmlFor="zip2" className="control-label">Zip Code</label>
-                        <input type="text" value='' className="form-control" id="zip2" placeholder="00000" />
+                        <label htmlFor="new-zip2" className="control-label">Zip Code</label>
+                        <input type="text" className="form-control" id="new-zip2" placeholder="00000" />
                     </div>
                     <div className="form-group col-xs-6">
-                        <label htmlFor="phone2" className="control-label">Primary Phone</label>
-                        <input type="text" value='' className="form-control" id="phone2" placeholder="000-000-0000" />
+                        <label htmlFor="new-phone2" className="control-label">Primary Phone</label>
+                        <input type="text" className="form-control" id="new-phone2" placeholder="000-000-0000" />
                     </div>
                     <div className="form-group col-xs-6">
-                        <label htmlFor="email2" className="control-label">Email</label>
-                        <input type="email" value='' className="form-control" id="email2" placeholder="parent2@address.com" />
+                        <label htmlFor="new-email2" className="control-label">Email</label>
+                        <input type="email" className="form-control" id="new-email2" placeholder="parent2@address.com" />
                     </div>
                 </div>
               </ToggleDisplay>
@@ -322,3 +348,44 @@ var Signup = React.createClass({
 
 
 module.exports = Signup;
+
+// handleSignupSubmit: function(e){
+//   e.preventDefault();
+//   var self = this;
+//   document.getElementById('heading').scrollIntoView();
+//   self.setState({ type: 'info', message: 'Sending...' }, self.sendFormData);
+// },
+// handleClick: function() {
+//     this.setState({ show: !this.state.show });
+// },
+// sendFormData: function () {
+//   // Fetch form values.
+//   var formData = {
+//     budget: React.findDOMNode(this.refs.budget).value,
+//     company: React.findDOMNode(this.refs.company).value,
+//     email: React.findDOMNode(this.refs.email).value
+//   };
+//
+//   // Send the form data.
+//   var xmlhttp = new XMLHttpRequest();
+//   var _this = this;
+//   xmlhttp.onreadystatechange = function() {
+//     if (xmlhttp.readyState === 4) {
+//       var response = JSON.parse(xmlhttp.responseText);
+//       if (xmlhttp.status === 200 && response.status === 'OK') {
+//         _this.setState({ type: 'success', message: 'We have received your message and will get in touch shortly. Thanks!' });
+//       }
+//       else {
+//         _this.setState({ type: 'danger', message: 'Sorry, there has been an error. Please try again later or send us an email at info@example.com.' });
+//       }
+//     }
+//   };
+//   xmlhttp.open('POST', 'send', true);
+//   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//   xmlhttp.send(this.requestBuildQueryString(formData));
+// },
+
+// if (this.state.type && this.state.message) {
+// var classString = 'alert alert-' + this.state.type;
+// var status = <div id="status" className={classString} ref="status">{this.state.message}</div>;
+// }

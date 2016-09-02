@@ -56,15 +56,18 @@ var GroupSetup = React.createClass({
   },
   render: function(){
     return (
-      <div className="col-md-offset-2 col-md-8 group-table">
-        <div className="icon-third"><img src="images/PoolParty_purplelog.png"></img></div>
-        <div><h1 id="page-title">Welcome, David!</h1></div>
-        <div className="sect-sep">
-          <p>Now that you’re a Pool Party member, let’s start with creating a Group. The Students you’ll see listed below live within a 2-mile radius of your home. This makes it convenient for both them and you to join together.</p>
-        </div>
-        <div className="row col-sm-10">
-          <div>
-            <div className="subtitle"><h2><img src="./images/group.png" className="panel-art"/>Create A Group!</h2></div>
+      <div>
+        <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+          <div className="icon-third">
+            <img src="images/PoolParty_purplelog.png"></img>
+          </div>
+          <div><h1 id="page-title">Welcome, David!</h1></div>
+          <div className="sect-sep">
+            <p>Now that you’re a Pool Party member, let’s start with creating a Group. The Students you’ll see listed below live within a 2-mile radius of your home. This makes it convenient for both them and you to join together.</p>
+          </div>
+          <div className="row">
+            <div>
+              <div className="subtitle"><h2><img src="./images/group.png" className="panel-art"/>Create A Group!</h2></div>
               <div className="panel-body">
                 <p>Select from the eligible students shown to form your potential car pool group. Do not select more than 4 potential students; Groups cannot consist of more than 5 members. Students with the name crossed through have already joined a group.</p>
                 <p>Once you’ve selected your group, name the group below. Then click the Create button. An email will be sent to each student’s parent(s) informing them of your wish to have them join your car pool. You will be notified once they have confirmed their participation.</p>
@@ -82,6 +85,7 @@ var GroupSetup = React.createClass({
               <button type="submit" className="btn btn-success btn-sm pull-right">Create Group</button>
             </div>
           </div>
+        </div>
       </div>
     )
   }
