@@ -1,4 +1,4 @@
- var React = require('react');
+var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
@@ -102,7 +102,7 @@ var Signup = React.createClass({
         <form className="" action="" onSubmit={this.handleSignupSubmit}>
           <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
             <div className="row">
-              <h2>Select your child!</h2>
+              <h2>First, select your child!</h2>
             </div>
             <div className="row name-menu form-group">
               <select type="text" value='student' className="form-control" id="student">
