@@ -14,7 +14,7 @@ var Router = Backbone.Router.extend({
     'index': 'welcomeController',
     'signup/': 'signupController',
     'groups/': 'groupCreate',
-    'schedules/': 'scheduleController'
+    'schedules/': 'scheduleController',
   },
   welcomeController: function(){
     var self = this;

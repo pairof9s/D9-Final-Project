@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var $ = require('jquery');
 var ReactBsTable = require("react-bootstrap-table");
 var BootstrapTable = ReactBsTable.BootstrapTable;
 var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
@@ -33,6 +34,19 @@ var selectRowProp = {
     onSelect: onRowSelect,
     onSelectAll: onSelectAll
   };
+
+var GroupPop = React.createClass({
+  groupShare: function() {
+    window.open('', 'sharer', 'toolbar=0,status=0,width=640,height=480');
+  },
+  render: function(){
+    return (
+      <div>
+        <button type="submit" className="btn btn-success btn-sm pull-right" onClick={this.groupShare}>Create Group</button>
+      </div>
+    );
+  }
+});
 
 var GroupSetup = React.createClass({
   getInitialState: function(){
@@ -73,7 +87,7 @@ var GroupSetup = React.createClass({
                 <p>Once you’ve selected your group, name the group below. Then click the Create button. An email will be sent to each student’s parent(s) informing them of your wish to have them join your car pool. You will be notified once they have confirmed their participation.</p>
               </div>
               <div>
-                <BootstrapTable className="table" data={data} height="280" selectRow={selectRowProp} striped={true} hover={true} condensed={true}>
+                <BootstrapTable className="table" id="table" data={data} height="280" selectRow={selectRowProp} striped={true} hover={true} condensed={true}>
                   <TableHeaderColumn dataField="studentName" isKey={true} dataSort={true} className="td-header-group">Students Eligible</TableHeaderColumn>
                   <TableHeaderColumn dataField="studentSchool" dataAlign="center" className="td-header-group">School</TableHeaderColumn>
                   <TableHeaderColumn dataField="studentGrade" dataAlign="center" className="td-header-group">Grade Level</TableHeaderColumn>
@@ -82,7 +96,7 @@ var GroupSetup = React.createClass({
               </div>
             </div>
             <div>
-              <button type="submit" className="btn btn-success btn-sm pull-right">Create Group</button>
+              <GroupPop />
             </div>
           </div>
         </div>
@@ -91,17 +105,28 @@ var GroupSetup = React.createClass({
   }
 });
 
-var GroupSelect = React.createClass({
-
-  componentWillMount: function(){
-    var self = this;
-  },
-  render: function(){
-    return router;
-  }
-});
+// var GroupSelect = React.createClass({
+//   getInitialState: function(){
+//     return {
+//       router
+//     };
+//   },
+//   componentWillMount: function(){
+//     var self = this;
+//   },
+//   render: function(){
+//     return (
+//       <div>
+//         <h2>Here’s you Group!</h2>
+//         <div>
+//           <p>Now that you’ve set up your Group, be sure to confirm the students you selected and give your Group a name. If you wish to change your selection, click on the Edit button below.</p>
+//         </div>
+//       </div>
+//     )
+//   }
+// });
 
 module.exports = {
   'GroupSetup': GroupSetup,
-  'GroupSelect': GroupSelect
+  // 'GroupSelect': GroupSelect
 };

@@ -81,7 +81,8 @@
   "dependencies": {
     "react": "^0.14.8",
     "react-bootstrap-table": "^2.3.8",
-    "react-toggle-display": "^2.0.2",
-    "react-dom": "^0.14.8"
+    "react-dom": "^0.14.8",
+    "react-popout": "^0.5.3",
+    "react-toggle-display": "^2.0.2"
   }
 }
