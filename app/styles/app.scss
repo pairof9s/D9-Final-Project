@@ -12,6 +12,10 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
   box-sizing: border-box;
 }
 
+body {
+  background-color: #76E1E5;
+}
+
 
 img {
   max-width: 100%;
@@ -20,6 +24,8 @@ img {
 .container-fluid {
   margin: 0 auto;
   padding: 0;
+  background-color: white;
+  height: auto;
 }
 
 h1, h2, h3, h4 {
@@ -186,6 +192,7 @@ p {
 // Welcome section
 .welc-area {
   margin-top: 50px;
+  margin-bottom: 50px;
   padding: 0;
 }
 
