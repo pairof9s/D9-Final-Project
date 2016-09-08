@@ -28,6 +28,9 @@ var GroupMap = React.createClass({
             <div className="col-md-6">
               <h3>Map Area</h3>
             </div>
+            <div>
+
+            </div>
           </div>
           <div className="sect-sep"></div>
           <div className="row">

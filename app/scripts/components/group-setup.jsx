@@ -10,19 +10,19 @@ var StudentCollection = require('../models/students').StudentCollection;
 
 
 var data = [
-    {id: 4021, studentName: 'Watt Ever', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
-    {id: 4022, studentName: 'Jane Plane', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-    {id: 4023, studentName: 'Sally Mow', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-    {id: 4024, studentName: 'Tye Neetim', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'M'},
-    {id: 4025, studentName: 'Wanda Full', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-    {id: 4026, studentName: 'Ben Dumm', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
-    {id: 4027, studentName: 'Tom Mee', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'M'},
-    {id: 4028, studentName: 'Deb Utawnt', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-    {id: 4029, studentName: 'Jack Spratt', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
-    {id: 4030, studentName: 'Joe Kerr', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
-    {id: 4031, studentName: 'Robin DeRitch', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-    {id: 4032, studentName: 'Sally Mander', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'F'},
-    {id: 4033, studentName: 'Frank Lee', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
+    {id: 'wuBgAL3t2t', studentName: 'Watt Ever', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
+    {id: 'lstUXuic5R', studentName: 'Jane Plane', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
+    {id: 'j1WzyzUVFF', studentName: 'Sally Mow', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
+    {id: 'J1BwScz6RD', studentName: 'Tye Neetim', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'M'},
+    {id: 'HJofdyZuqx', studentName: 'Wanda Full', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
+    {id: 'Maew8w3yPo', studentName: 'Ben Dumm', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
+    {id: 'mD7voOHuU3', studentName: 'Tom Mee', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'M'},
+    {id: 'b1gPcplMmn', studentName: 'Deb Utawnt', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
+    {id: 'uORB8oAVYV', studentName: 'Jack Spratt', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
+    {id: 'LGgC6Fg4Fr', studentName: 'Joe Kerr', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
+    {id: 'PMYpqtvUBU', studentName: 'Robin DeRitch', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
+    {id: 'wF87V3FSip', studentName: 'Sally Mander', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'F'},
+    {id: 'NuwxJ5ImRX', studentName: 'Frank Lee', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
 ];
 
 var onRowSelect;
