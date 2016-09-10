@@ -5,7 +5,10 @@ var $ = require('jquery');
 var User = require('../models/students').User;
 
 
-function isDefined(val) { return val != null; }
+// Second Parent form On-Off toggle
+var isDefined = function(val) {
+	return val != null;
+}
 
 var ToggleDisplay = React.createClass({
 
@@ -42,6 +45,7 @@ var ToggleDisplay = React.createClass({
 	}
 });
 
+// Student selection and Primary Parent form
 var Signup = React.createClass({
   getInitialState: function(){
     return {
@@ -348,44 +352,3 @@ var Signup = React.createClass({
 
 
 module.exports = Signup;
-
-// handleSignupSubmit: function(e){
-//   e.preventDefault();
-//   var self = this;
-//   document.getElementById('heading').scrollIntoView();
-//   self.setState({ type: 'info', message: 'Sending...' }, self.sendFormData);
-// },
-// handleClick: function() {
-//     this.setState({ show: !this.state.show });
-// },
-// sendFormData: function () {
-//   // Fetch form values.
-//   var formData = {
-//     budget: React.findDOMNode(this.refs.budget).value,
-//     company: React.findDOMNode(this.refs.company).value,
-//     email: React.findDOMNode(this.refs.email).value
-//   };
-//
-//   // Send the form data.
-//   var xmlhttp = new XMLHttpRequest();
-//   var _this = this;
-//   xmlhttp.onreadystatechange = function() {
-//     if (xmlhttp.readyState === 4) {
-//       var response = JSON.parse(xmlhttp.responseText);
-//       if (xmlhttp.status === 200 && response.status === 'OK') {
-//         _this.setState({ type: 'success', message: 'We have received your message and will get in touch shortly. Thanks!' });
-//       }
-//       else {
-//         _this.setState({ type: 'danger', message: 'Sorry, there has been an error. Please try again later or send us an email at info@example.com.' });
-//       }
-//     }
-//   };
-//   xmlhttp.open('POST', 'send', true);
-//   xmlhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//   xmlhttp.send(this.requestBuildQueryString(formData));
-// },
-
-// if (this.state.type && this.state.message) {
-// var classString = 'alert alert-' + this.state.type;
-// var status = <div id="status" className={classString} ref="status">{this.state.message}</div>;
-// }

@@ -6,7 +6,7 @@ var Backbone = require('backbone');
 // var GroupCollection = require('../models/groups').GroupCollection;
 
 
-var GroupMap = React.createClass({
+var MapSchedule = React.createClass({
   getInitialState: function(){
     return {
     };
@@ -44,6 +44,6 @@ var GroupMap = React.createClass({
   }
 });
 
-module.exports = GroupMap;
+module.exports = MapSchedule;
 
 // Google Map key >>  AIzaSyCTxwfw21PFbas9U69kH7ZhmmtvGWgjzJU
