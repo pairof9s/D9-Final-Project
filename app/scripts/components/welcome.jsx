@@ -51,7 +51,7 @@ var Welcome = React.createClass({
               </div>
               <form onSubmit={this.handleLoginSubmit}>
                 <label htmlFor="username">User Name</label>
-                <input type="email1" className="form-control log-entry" id="username" placeholder="Enter your user name"></input>
+                <input type="username" className="form-control log-entry" id="username" placeholder="Enter your user name"></input>
                 <label htmlFor="password">Password</label>
                 <input type="password" className="form-control log-entry" id="password" placeholder="Enter password"></input>
                 <input type="submit" className="btn btn-success btn-sm" value="Login"></input>
