@@ -2,8 +2,7 @@ var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
-var Session = require('../models/students').Session;
-var User = require('../models/students').User;
+var User = require('../models/user').User;
 
 
 var Welcome = React.createClass({
@@ -17,25 +16,18 @@ var Welcome = React.createClass({
   handleLoginSubmit: function(e){
     e.preventDefault();
     var self = this;
-    var email1 = $('#email1').val();
+    var username = $('#username').val();
     var password = $('#password').val();
 
-    var loginUser = User.login(email1, password);
-    localStorage.setItem('email1', email1)
-
-    loggedInUser.done(function(response){
-    self.props.router.user.set('email1', email1);
-    self.props.router.user.save();
-    self.props.router.navigate('#schedules/', {trigger: true})
-    }).fail(function(){
-      alert('Inproper Login. Check your email address and/or password.')
+    User.login(username, password, {
+      success: function(response){
+        self.props.router.navigate('groups/', {trigger: true});
+      },
+      fail: function(response){
+        alert('Login failed. Please check user name or password.');
+      }
     });
-  },
-  handlePasswordChange: function(e){
-    this.setState({password: e.target.value})
-  },
-  handleUsernameChange: function(e){
-    this.setState({email1: e.target.value})
+    localStorage.setItem('username', username)
   },
   render: function(){
     return (
@@ -58,10 +50,10 @@ var Welcome = React.createClass({
                 <h3 id="form-title">Log In...</h3>
               </div>
               <form onSubmit={this.handleLoginSubmit}>
-                <label htmlFor="email1">Email addess</label>
-                <input onChange={this.handleUsernameChange} type="email1" className="form-control log-entry" id="email1" placeholder="Enter your email address"></input>
+                <label htmlFor="username">User Name</label>
+                <input type="email1" className="form-control log-entry" id="username" placeholder="Enter your user name"></input>
                 <label htmlFor="password">Password</label>
-                <input onChange={this.handlePasswordChange} type="password" className="form-control log-entry" id="password" placeholder="Enter password"></input>
+                <input type="password" className="form-control log-entry" id="password" placeholder="Enter password"></input>
                 <input type="submit" className="btn btn-success btn-sm" value="Login"></input>
               </form>
               <div className="open-links">Not signed up yet? <a href="#signup/">Click here</a>

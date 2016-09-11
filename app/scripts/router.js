@@ -7,6 +7,7 @@ var Signup = require('./components/signup.jsx');
 var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
 var MapSchedule = require('./components/map.jsx');
 var App = require('./components/test.jsx').App;
+var User = require('./models/user').User;
 
 
 var Router = Backbone.Router.extend({
@@ -18,6 +19,12 @@ var Router = Backbone.Router.extend({
     'schedules/': 'scheduleController',
     'test/': 'testController',
   },
+  initialize: function(){
+    if (User.isAuthenticated()) {
+      var currentParent = User.restore();
+    }
+  },
+
   welcomeController: function(){
     var self = this;
     ReactDOM.render(
@@ -43,13 +50,6 @@ var Router = Backbone.Router.extend({
     var self = this;
     ReactDOM.render(
       React.createElement(MapSchedule, {router: self}),
-      document.getElementById('container')
-    );
-  },
-  testController: function(){
-    var self = this;
-    ReactDOM.render(
-      React.createElement(App, {router: self}),
       document.getElementById('container')
     );
   },

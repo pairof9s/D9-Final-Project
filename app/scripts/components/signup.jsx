@@ -2,7 +2,9 @@ var React = require('react');
 var Backbone = require('backbone');
 var $ = require('jquery');
 
-var User = require('../models/students').User;
+var User = require('../models/user').User;
+var Student = require('../models/students').Student;
+var StudentCollection = require('../models/students').StudentCollection;
 
 
 // Second Parent form On-Off toggle
@@ -51,6 +53,10 @@ var Signup = React.createClass({
     return {
 			show: true,
 			student: '',
+			school: '',
+			grade: '',
+			gender: '',
+			username: '',
 			password: '',
 			firstname1: '',
 			lastname1: '',
@@ -68,15 +74,23 @@ var Signup = React.createClass({
 			zip2: '',
 			phone2: '',
 			email2: '',
+			// studentList: new StudentCollection,
     };
   },
   componentWillMount: function(){
     var self = this;
+		// this.state.studentList.fetch().done(function(){
+		// 	self.forceUpdate();
+		// });
   },
 	handleSignupSubmit: function(e){
     e.preventDefault();
     var self = this;
 		var student = $('#new-student').val();
+		var school = $('#new-school').val();
+		var grade = $('#new-grade').val();
+		var gender = $('#new-gender').val();
+		var username = $('#new-username').val();
 		var password = $('#new-password').val();
 		var firstname1 = $('#new-firstname1').val();
 		var lastname1 = $('#new-lastname1').val();
@@ -96,7 +110,7 @@ var Signup = React.createClass({
 		var email2 = $('#new-email2').val();
 
     var user = new User();
-    user.set({'student': student, 'password': password, 'firstname1': firstname1, 'lastname1': lastname1, 'street1': street1, 'city1': city1, 'state1': state1, 'zip1': zip1, 'phone1': phone1, 'email1': email1, 'firstname2': firstname2, 'lastname2': lastname2, 'street2': street2, 'city2': city2, 'state2': state2, 'zip2': zip2, 'phone2': phone2, 'email2': email1});
+    user.set({'student': student, 'school': school, 'grade': grade, 'gender': gender, 'username': username, 'password': password, 'firstname1': firstname1, 'lastname1': lastname1, 'street1': street1, 'city1': city1, 'state1': state1, 'zip1': zip1, 'phone1': phone1, 'email1': email1, 'firstname2': firstname2, 'lastname2': lastname2, 'street2': street2, 'city2': city2, 'state2': state2, 'zip2': zip2, 'phone2': phone2, 'email2': email2});
 
     user.save().done(function(){
     self.props.router.navigate('#', {trigger: true})
@@ -108,10 +122,17 @@ var Signup = React.createClass({
 	    this.setState({ show: !this.state.show });
 	},
   render: function(){
+		// var chooseStudent = this.state.studentList;
+		// var eachStudent = chooseStudent.map(function(student, index){
+		// 	console.log(student);
+		// 	return (
+		// 		<option key={index}>{student.get('student')}</option>
+		// 	)
+		// })
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-          <div className="icon-third"><img src="images/PoolParty_purplelog.png"></img></div>
+          <div className="icon-third"><a href="#"><img src="images/PoolParty_purplelog.png"></img></a></div>
           <div>
 						<h1 id="page-title">Register to join Pool Party</h1>
 					</div>
@@ -122,40 +143,82 @@ var Signup = React.createClass({
         <form onSubmit={this.handleSignupSubmit}>
           <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
             <div>
-              <h2>First, select your child..</h2>
+              <h2><img src="./images/security.png" className="panel-art" />First, create your user name & password</h2>
             </div>
-            <div className="row form-group">
+						<div className="row form-group">
 							<div className="col-sm-4">
-	              <select type="text" className="form-control" id="new-student">
-	                <option>Find their name...</option>
-	                <option>Johnny Nine</option>
-	                <option>Wanda Full</option>
-	                <option>Joe Kerr</option>
-	                <option>Syd Nee</option>
-	                <option>Jane Plane</option>
-	                <option>Tye Neetym</option>
-	                <option>Ben Dumm</option>
-	                <option>Robin DeRitch</option>
-	                <option>Tom Meie</option>
-	                <option>Sally Mander</option>
-	                <option>Frank Lee</option>
-	                <option>Deb Utawnt</option>
-	                <option>Jack Spratt</option>
-	                <option>Sally Mow</option>
-	              </select>
+								<input type="username" className="form-control" id="new-username" placeholder="User Name" />
 							</div>
-            </div>
+							<div className="col-sm-4">
+								<input type="password" className="form-control" id="new-password" placeholder="Password" />
+							</div>
+						</div>
+						<div className="sect-sep"></div>
 						<div>
-							<h2>..then create a password</h2>
+							<h2><img src="./images/schoolhands.png" className="panel-art" />..then provide your child’s information</h2>
 						</div>
 						<div className="row form-group">
 							<div className="col-sm-4">
-								<input type="password" className="form-control" id="new-password" placeholder="Minimum of 6 characters" />
+								<input type="student" className="form-control" id="new-student" placeholder="Child’s full name..." />
+							</div>
+							<div className="col-sm-4">
+								<select type="school" className="form-control" id="new-school">
+									<option value=''>School</option>
+									<option value="" disabled>–– Elementary Schools ––</option>
+									<option>Bell’s Crossing Elementary School</option>
+									<option>Bethel Elementary School</option>
+									<option>Bryson Elementary School</option>
+									<option>Mauldin Elementary School</option>
+									<option>Oakview Elementary School</option>
+									<option>Rudolf Gordon Elementary School</option>
+									<option value="" disabled>–– Middle Schools ––</option>
+									<option>Beck Academy School</option>
+									<option>Bryson Academy School</option>
+									<option>Hillcrest Middle School</option>
+									<option>League Academy School</option>
+									<option>Mauldin Middle School</option>
+									<option>Northwood Middle School</option>
+									<option>Ralph Chandler Middle School</option>
+									<option value="" disabled>–– High Schools ––</option>
+									<option>Berea High School</option>
+									<option>Eastside High School</option>
+									<option>Greenville High School</option>
+									<option>Hillcrest High School</option>
+									<option>J.L. Mann High School</option>
+									<option>Mauldin High School</option>
+									<option>Riverside High School</option>
+									<option>Travelers Rest High School</option>
+									<option>Wade Hampton High School</option>
+								</select>
+							</div>
+							<div className="col-sm-2">
+								<select type="grade" className="form-control" id="new-grade">
+									<option>Grade</option>
+									<option>12</option>
+									<option>11</option>
+									<option>10</option>
+									<option>9</option>
+									<option>8</option>
+									<option>7</option>
+									<option>6</option>
+									<option>5</option>
+									<option>4</option>
+									<option>3</option>
+									<option>2</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div className="col-sm-2">
+								<select type="gender" className="form-control" id="new-gender">
+									<option>Gender</option>
+									<option>F</option>
+									<option>M</option>
+								</select>
 							</div>
 						</div>
 						<div className="sect-sep"></div>
             <div className="row">
-              <h3><img src="./images/parents.png" className="panel-art" />Primary Parent’s Information:</h3>
+              <h2><img src="./images/parents.png" className="panel-art" />Primary Parent’s Information:</h2>
               <div className="col-md-10">
                 <div className="form-group col-xs-6 col-md-6">
                     <label htmlFor="new-firstname1" className="control-label">First Name</label>
@@ -249,7 +312,7 @@ var Signup = React.createClass({
             <div className="row">
               <ToggleDisplay show={this.state.show}></ToggleDisplay>
               <ToggleDisplay hide={this.state.show}>
-                <h3><img src="./images/parents2.png" className="panel-art" />Secondary Parent’s Information:</h3>
+                <h2><img src="./images/parents2.png" className="panel-art" />Secondary Parent’s Information:</h2>
                 <div className="col-md-10">
                     <div className="form-group col-xs-6 col-md-6">
                         <label htmlFor="new-firstname2" className="control-label">First Name</label>

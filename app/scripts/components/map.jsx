@@ -16,7 +16,7 @@ var MapSchedule = React.createClass({
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
           <div className="icon-third">
-            <img src="images/PoolParty_purplelog.png"></img>
+            <a href="#"><img src="images/PoolParty_purplelog.png"></img></a>
           </div>
           <div>
             <h1 id="page-title">Hi, David!</h1>
