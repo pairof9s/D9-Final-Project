@@ -97,7 +97,7 @@ var MapSchedule = React.createClass({
               <div className="subtitle"><h2><img src="./images/chat.png" className="panel-art"/> Let's Chat..</h2>
               </div>
               <div>
-                < CommentBox />
+                <CommentBox />
               </div>
             </div>
           </div>
