@@ -6,7 +6,6 @@ var Welcome = require('./components/welcome.jsx');
 var Signup = require('./components/signup.jsx');
 var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
 var MapSchedule = require('./components/map.jsx');
-var App = require('./components/test.jsx').App;
 var User = require('./models/user').User;
 
 
@@ -17,7 +16,6 @@ var Router = Backbone.Router.extend({
     'signup/': 'signupController',
     'groups/': 'groupCreate',
     'schedules/': 'scheduleController',
-    'test/': 'testController',
   },
   initialize: function(){
     if (User.isAuthenticated()) {

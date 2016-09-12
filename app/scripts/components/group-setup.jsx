@@ -7,35 +7,21 @@ var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
 
 // var models = require('../models/students');
 var StudentCollection = require('../models/students').StudentCollection;
+var Group = require('../models/groups').Group;
 
-// var data = [
-//     {id: 'wuBgAL3t2t', studentName: 'Watt Ever', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
-//     {id: 'lstUXuic5R', studentName: 'Jane Plane', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-//     {id: 'j1WzyzUVFF', studentName: 'Sally Mow', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-//     {id: 'J1BwScz6RD', studentName: 'Tye Neetim', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'M'},
-//     {id: 'HJofdyZuqx', studentName: 'Wanda Full', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-//     {id: 'Maew8w3yPo', studentName: 'Ben Dumm', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
-//     {id: 'mD7voOHuU3', studentName: 'Tom Mee', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'M'},
-//     {id: 'b1gPcplMmn', studentName: 'Deb Utawnt', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-//     {id: 'uORB8oAVYV', studentName: 'Jack Spratt', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
-//     {id: 'LGgC6Fg4Fr', studentName: 'Joe Kerr', studentSchool: 'Beck Middle School', studentGrade: '6', studentGender: 'M'},
-//     {id: 'PMYpqtvUBU', studentName: 'Robin DeRitch', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'F'},
-//     {id: 'wF87V3FSip', studentName: 'Sally Mander', studentSchool: 'Beck Middle School', studentGrade: '8', studentGender: 'F'},
-//     {id: 'NuwxJ5ImRX', studentName: 'Frank Lee', studentSchool: 'Beck Middle School', studentGrade: '7', studentGender: 'M'},
-// ];
 
-var GroupPop = React.createClass({
-  groupShare: function() {
-    window.open('', 'sharer', 'toolbar=0,status=0,width=640,height=480');
-  },
-  render: function(){
-    return (
-      <div>
-        <button id="submitButton" type="submit" className="btn btn-success btn-sm pull-right" onClick={this.groupShare}>Create Group</button>
-      </div>
-    );
-  }
-});
+// var GroupPop = React.createClass({
+//   groupShare: function() {
+//     window.open('', 'sharer', 'toolbar=0,status=0,width=640,height=480');
+//   },
+//   render: function(){
+//     return (
+//       <div>
+//         <button id="submitButton" type="submit" className="btn btn-success btn-sm pull-right" onClick={this.groupShare}>Create Group</button>
+//       </div>
+//     );
+//   }
+// });
 
 var onRowSelect;
 var onSelectAll;
@@ -47,11 +33,11 @@ var selectRowProp = {
     onSelectAll: onSelectAll
   };
 
-
 var GroupSetup = React.createClass({
   getInitialState: function(){
     return {
-      studentList: new StudentCollection,
+      studentList: new StudentCollection(),
+      kidsGroup: new Group(),
     };
   },
   componentWillMount: function(){
@@ -67,9 +53,32 @@ var GroupSetup = React.createClass({
   onSelectAll: function(isSelected){
       console.log("is select all: " + isSelected);
   },
-  onSubmit: function(){
+  onSubmit: function(e){
     e.preventDefault();
     var router = this.props.router;
+    var kidsGroup = this.state.kidsGroup;
+    var selectGroup = [];
+    var user = JSON.parse(localStorage.getItem('user'));
+    $("#groupTable input:checkbox:checked").map(function(){
+    	var row = $(this).closest('tr');
+			var studentItem = $(row).find('.thisStudent').html();
+      var schoolItem = $(row).find('.thisSchool').html();
+      var firstName1Item = $(row).find('.thisFirstName1').html();
+      var lastName1Item = $(row).find('.thisLastName1').html();
+      var street1Item = $(row).find('.thisStreet1').html();
+      var city1Item = $(row).find('.thisCity1').html();
+      var state1Item = $(row).find('.thisState1').html();
+      var zip1Item = $(row).find('.thisZip1').html();
+      var email1Item = $(row).find('.thisEmail1').html();
+      var phone1Item = $(row).find('.thisPhone1').html();
+      selectGroup.push([studentItem, schoolItem, firstName1Item, lastName1Item, street1Item, city1Item, state1Item, zip1Item, email1Item, phone1Item]);
+    });
+    console.log(selectGroup);
+    kidsGroup.set('myGroup', selectGroup);
+    kidsGroup.setPointer('user', user, '_User');
+    kidsGroup.save().done(function(){
+      router.navigate('schedules/', {trigger: true});
+    });
   },
   render: function(){
     var chooseStudent = this.state.studentList;
@@ -77,12 +86,20 @@ var GroupSetup = React.createClass({
       return (
         <tr key={index}>
           <td align="center">
-              <input type="checkbox" className="case" name="case" value={index} />
+            <input type="checkbox" className="case" name="case" value={index} />
           </td>
-          <td>{student.get('student')}</td>
-          <td>{student.get('school')}</td>
+          <td className="thisStudent">{student.get('student')}</td>
+          <td className="thisSchool">{student.get('school')}</td>
           <td>{student.get('grade')}</td>
           <td>{student.get('gender')}</td>
+          <td className="thisFirstName1">{student.get('firstname1')}</td>
+          <td className="thisLastName1">{student.get('lastname1')}</td>
+          <td className="thisPhone1">{student.get('phone1')}</td>
+          <td className="thisEmail1">{student.get('email1')}</td>
+          <td className="thisStreet1">{student.get('street1')}</td>
+          <td className="thisCity1">{student.get('city1')}</td>
+          <td className="thisState1">{student.get('state1')}</td>
+          <td className="thisZip1">{student.get('zip1')}</td>
         </tr>
       )
     })
@@ -103,8 +120,8 @@ var GroupSetup = React.createClass({
                 <p>Select from the eligible students shown to form your potential car pool group. Do not select more than 4 potential students; Groups cannot consist of more than 5 members. Students with the name crossed through have already joined a group.</p>
                 <p>Once you’ve selected your group, name the group below. Then click the Create button. An email will be sent to each student’s parent(s) informing them of your wish to have them join your car pool. You will be notified once they have confirmed their participation.</p>
               </div>
-              <div>
-                <table border="1">
+              <div className="well tableScroll table-responsive">
+                <table border="1" className="table table-striped" id="groupTable">
                   <thead>
                     <tr>
                       <th>Select</th>
@@ -112,6 +129,14 @@ var GroupSetup = React.createClass({
                       <th>School</th>
                       <th>Grade Level</th>
                       <th>Gender</th>
+                      <th>Parent Name</th>
+                      <th>Parent Last</th>
+                      <th>Phone</th>
+                      <th>Email</th>
+                      <th>Street</th>
+                      <th>City</th>
+                      <th>State</th>
+                      <th>Zip Code</th>
                     </tr>
                   </thead>
                   <tbody>{eachStudent}</tbody>
@@ -119,7 +144,7 @@ var GroupSetup = React.createClass({
               </div>
             </div>
             <div>
-              <GroupPop />
+              <button id="submitButton" type="submit" className="btn btn-success btn-sm" onClick={this.onSubmit}>Create Group</button>
             </div>
           </div>
         </div>
@@ -132,6 +157,7 @@ module.exports = {
   'GroupSetup': GroupSetup,
   // 'GroupSelect': GroupSelect
 };
+
 
 // var GroupSelect = React.createClass({
 //   getInitialState: function(){

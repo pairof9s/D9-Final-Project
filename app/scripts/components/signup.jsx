@@ -122,13 +122,6 @@ var Signup = React.createClass({
 	    this.setState({ show: !this.state.show });
 	},
   render: function(){
-		// var chooseStudent = this.state.studentList;
-		// var eachStudent = chooseStudent.map(function(student, index){
-		// 	console.log(student);
-		// 	return (
-		// 		<option key={index}>{student.get('student')}</option>
-		// 	)
-		// })
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">

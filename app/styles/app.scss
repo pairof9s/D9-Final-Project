@@ -311,6 +311,17 @@ p {
   }
 }
 
+.tableScroll {
+  width:550px;
+  max-width:550px;
+  overflow-x:scroll;
+  text-align: center;
+}
+
+.table-striped th {
+  text-align: center;
+  width: auto !important;
+}
 
 // Map & Schedule section
 #map {
