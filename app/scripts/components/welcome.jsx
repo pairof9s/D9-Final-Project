@@ -21,7 +21,7 @@ var Welcome = React.createClass({
 
     User.login(username, password, {
       success: function(response){
-        self.props.router.navigate('groups/', {trigger: true});
+        self.props.router.navigate('schedules/', {trigger: true});
       },
       fail: function(response){
         alert('Login failed. Please check user name or password.');

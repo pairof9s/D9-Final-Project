@@ -63,16 +63,33 @@ a {
   color: #76E1E5;
 }
 
-// Page logo (responsive)
+// Nav Bar (responsive)
 .icon-third img {
   width: 40%;
-  min-width: 180px;
+  min-width: 120px;
+  max-height: 150px;
   margin-top: 30px;
 }
 
 .icon-lrg img {
   width: 80%;
   margin-top: 10px;
+}
+
+.active-user {
+  text-align: center;
+  margin-top: 30px;
+
+  & h5 {
+    font-size: .85em;
+    font-weight: 400;
+    text-transform: lowercase;
+  }
+
+.active-btn {
+  margin-top: -4px;
+  border-top: 1px solid #666;
+}
 }
 
 // Section titles

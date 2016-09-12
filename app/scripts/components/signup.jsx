@@ -113,7 +113,7 @@ var Signup = React.createClass({
     user.set({'student': student, 'school': school, 'grade': grade, 'gender': gender, 'username': username, 'password': password, 'firstname1': firstname1, 'lastname1': lastname1, 'street1': street1, 'city1': city1, 'state1': state1, 'zip1': zip1, 'phone1': phone1, 'email1': email1, 'firstname2': firstname2, 'lastname2': lastname2, 'street2': street2, 'city2': city2, 'state2': state2, 'zip2': zip2, 'phone2': phone2, 'email2': email2});
 
     user.save().done(function(){
-    self.props.router.navigate('#', {trigger: true})
+    self.props.router.navigate('login/', {trigger: true})
     }).fail(function(){
       alert('Inproper Sign Up. Check your email address and/or password.')
     });
@@ -125,7 +125,7 @@ var Signup = React.createClass({
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-          <div className="icon-third"><a href="#"><img src="images/PoolParty_purplelog.png"></img></a></div>
+          <div className="icon-third"><a href="login/"><img src="images/PoolParty_purplelog.png"></img></a></div>
           <div>
 						<h1 id="page-title">Register to join Pool Party</h1>
 					</div>

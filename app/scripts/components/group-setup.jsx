@@ -33,6 +33,33 @@ var selectRowProp = {
     onSelectAll: onSelectAll
   };
 
+var NavTitle = React.createClass({
+  handleSignOut: function(){
+    localStorage.clear();
+  },
+  render: function(){
+    var user = JSON.parse(localStorage.getItem('user'));
+    return (
+      <div className="row">
+        <div className="col-xs-12">
+          <div className="pull-right">
+            <div className="row active-user">
+              <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <h5>{user.username}</h5>
+              <div className="active-btn btn btn-sm btn-link" onClick={this.handleSignOut}>
+                <a href="#" className="sign-out">Sign Out</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="icon-third"><a href="#"><img src="images/PoolParty_purplelog.png"></img></a></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+});
+
 var GroupSetup = React.createClass({
   getInitialState: function(){
     return {
@@ -81,6 +108,7 @@ var GroupSetup = React.createClass({
     });
   },
   render: function(){
+    var user = JSON.parse(localStorage.getItem('user'));
     var chooseStudent = this.state.studentList;
     var eachStudent = chooseStudent.map(function(student, index){
       return (
@@ -106,10 +134,8 @@ var GroupSetup = React.createClass({
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
-          <div className="icon-third">
-            <a href="#"><img src="images/PoolParty_purplelog.png"></img></a>
-          </div>
-          <div><h1 id="page-title">Welcome, David!</h1></div>
+          < NavTitle />
+          <div><h1 id="page-title">Welcome, {user.firstname1}!</h1></div>
           <div className="sect-sep">
             <p>Now that you’re a Pool Party member, let’s start with creating a Group. The Students you’ll see listed below live within a 2-mile radius of your home. This makes it convenient for both them and you to join together.</p>
           </div>
@@ -155,7 +181,6 @@ var GroupSetup = React.createClass({
 
 module.exports = {
   'GroupSetup': GroupSetup,
-  // 'GroupSelect': GroupSelect
 };
 
 
