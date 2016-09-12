@@ -32,10 +32,10 @@ var Login = React.createClass({
   render: function(){
     return (
       <div>
-        <div className="welc-area col-md-offset-3 col-md-6">
+        <div className="welc-area col-md-offset-1 col-md-10">
           <div className="welc-box-b">
             <div className="welc-logo">
-              <div>
+              <div className="icon-lrg">
                 <img src="images/PoolParty_purplelogtag.png"></img>
               </div>
               <div className="log-copy">
@@ -72,7 +72,7 @@ var Login = React.createClass({
           </div>
           <div className="welc-box-b">
             <div className="welc-art">
-              <img src="./images/welcome.png" />
+              <img className="img-responsive" src="./images/welcome.png" />
             </div>
           </div>
         </div>

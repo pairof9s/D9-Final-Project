@@ -124,7 +124,7 @@ var Signup = React.createClass({
   render: function(){
     return (
       <div>
-        <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+        <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
           <div className="icon-third"><a href="login/"><img src="images/PoolParty_purplelog.png"></img></a></div>
           <div>
 						<h1 id="page-title">Register to join Pool Party</h1>
@@ -134,7 +134,7 @@ var Signup = React.createClass({
           </div>
         </div>
         <form onSubmit={this.handleSignupSubmit}>
-          <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+          <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
             <div>
               <h2><img src="./images/security.png" className="panel-art" />First, create your user name & password</h2>
             </div>

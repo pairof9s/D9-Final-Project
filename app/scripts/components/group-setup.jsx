@@ -80,7 +80,7 @@ var GroupSetup = React.createClass({
     })
     return (
       <div>
-        <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+        <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
           < NavTitle />
           <div><h1 id="page-title">Welcome, {user.firstname1}!</h1></div>
           <div className="sect-sep">

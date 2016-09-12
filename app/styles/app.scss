@@ -13,7 +13,7 @@ $icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 }
 
 body {
-  
+  background-color: #9662D0;
 }
 
 
@@ -22,10 +22,9 @@ img {
 }
 
 .container-fluid {
-  margin: 0 auto;
-  padding: 0;
   background-color: white;
-  height: auto;
+  min-height: 1000px;
+  padding: 0;
 }
 
 h1, h2, h3, h4 {
@@ -66,14 +65,15 @@ a {
 // Nav Bar (responsive)
 .icon-third img {
   width: 40%;
-  min-width: 120px;
-  max-height: 150px;
+  width: auto;
+  max-height: 100px;
   margin-top: 30px;
 }
 
 .icon-lrg img {
-  width: 80%;
-  margin-top: 10px;
+  width: auto;
+  max-height: 180px;
+  margin-top: auto 0;
 }
 
 .active-user {

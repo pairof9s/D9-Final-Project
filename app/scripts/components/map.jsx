@@ -52,7 +52,7 @@ var MapSchedule = React.createClass({
     var user = JSON.parse(localStorage.getItem('user'));
     return (
       <div>
-        <div className="col-xs-offset-1 col-xs-10 col-md-offset-3 col-md-6">
+        <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
           <div>
             <NavTitle />
           </div>
