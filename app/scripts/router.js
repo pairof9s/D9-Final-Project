@@ -11,6 +11,8 @@ var MessageBoard = require('./components/map.jsx').MessageBoard;
 var NavTitle = require('./components/nav-bar.jsx').NavTitle;
 var User = require('./models/user').User;
 
+var CommentBox = require('./components/comments.jsx').CommentBox;
+
 
 var Router = Backbone.Router.extend({
   routes: {
@@ -66,6 +68,13 @@ var Router = Backbone.Router.extend({
     var self = this;
     ReactDOM.render(
       React.createElement(NavTitle, {router: self}),
+      document.getElementById('container')
+    );
+  },
+  CommentBox: function(){
+    var self = this;
+    ReactDOM.render(
+      React.createElement(CommentBox, {router: self}),
       document.getElementById('container')
     );
   },

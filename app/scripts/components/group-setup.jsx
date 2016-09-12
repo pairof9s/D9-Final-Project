@@ -1,64 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
-var ReactBsTable = require("react-bootstrap-table");
-var BootstrapTable = ReactBsTable.BootstrapTable;
-var TableHeaderColumn = ReactBsTable.TableHeaderColumn;
 
-// var models = require('../models/students');
+
 var StudentCollection = require('../models/students').StudentCollection;
 var Group = require('../models/groups').Group;
 
-
-// var GroupPop = React.createClass({
-//   groupShare: function() {
-//     window.open('', 'sharer', 'toolbar=0,status=0,width=640,height=480');
-//   },
-//   render: function(){
-//     return (
-//       <div>
-//         <button id="submitButton" type="submit" className="btn btn-success btn-sm pull-right" onClick={this.groupShare}>Create Group</button>
-//       </div>
-//     );
-//   }
-// });
-
-var onRowSelect;
-var onSelectAll;
-var selectRowProp = {
-    mode: "checkbox",
-    clickToSelect: true,
-    bgColor: "#FFC469",
-    onSelect: onRowSelect,
-    onSelectAll: onSelectAll
-  };
-
-var NavTitle = React.createClass({
-  handleSignOut: function(){
-    localStorage.clear();
-  },
-  render: function(){
-    var user = JSON.parse(localStorage.getItem('user'));
-    return (
-      <div className="row">
-        <div className="col-xs-12">
-          <div className="pull-right">
-            <div className="row active-user">
-              <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
-              <h5>{user.username}</h5>
-              <div className="active-btn btn btn-sm btn-link" onClick={this.handleSignOut}>
-                <a href="#" className="sign-out">Sign Out</a>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div className="icon-third"><a href="#"><img src="images/PoolParty_purplelog.png"></img></a></div>
-          </div>
-        </div>
-      </div>
-    )
-  }
-});
 
 var GroupSetup = React.createClass({
   getInitialState: function(){
@@ -179,11 +126,62 @@ var GroupSetup = React.createClass({
   }
 });
 
+var NavTitle = React.createClass({
+  handleSignOut: function(){
+    localStorage.clear();
+  },
+  render: function(){
+    var user = JSON.parse(localStorage.getItem('user'));
+    return (
+      <div className="row">
+        <div className="col-xs-12">
+          <div className="pull-right">
+            <div className="row active-user">
+              <span className="glyphicon glyphicon-user" aria-hidden="true"></span>
+              <h5>{user.username}</h5>
+              <div className="active-btn btn btn-sm btn-link" onClick={this.handleSignOut}>
+                <a href="#" className="sign-out">Sign Out</a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className="icon-third"><a href="#"><img src="images/PoolParty_purplelog.png"></img></a></div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+});
+
+
 module.exports = {
   'GroupSetup': GroupSetup,
 };
 
 
+// var GroupPop = React.createClass({
+//   groupShare: function() {
+//     window.open('', 'sharer', 'toolbar=0,status=0,width=640,height=480');
+//   },
+//   render: function(){
+//     return (
+//       <div>
+//         <button id="submitButton" type="submit" className="btn btn-success btn-sm pull-right" onClick={this.groupShare}>Create Group</button>
+//       </div>
+//     );
+//   }
+// });
+//
+// var onRowSelect;
+// var onSelectAll;
+// var selectRowProp = {
+//     mode: "checkbox",
+//     clickToSelect: true,
+//     bgColor: "#FFC469",
+//     onSelect: onRowSelect,
+//     onSelectAll: onSelectAll
+//   };
+//
 // var GroupSelect = React.createClass({
 //   getInitialState: function(){
 //     return {

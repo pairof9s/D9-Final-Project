@@ -4,7 +4,7 @@ var $ = require('jquery');
 
 var Group = require('../models/groups').Group;
 var GroupCollection = require('../models/groups').GroupCollection;
-var MessageCollection = require('../models/messages').MessageCollection;
+var CommentBox = require('../components/comments.jsx').CommentBox;
 
 
 var NavTitle = React.createClass({
@@ -97,7 +97,7 @@ var MapSchedule = React.createClass({
               <div className="subtitle"><h2><img src="./images/chat.png" className="panel-art"/> Let's Chat..</h2>
               </div>
               <div>
-
+                < CommentBox />
               </div>
             </div>
           </div>
@@ -107,120 +107,8 @@ var MapSchedule = React.createClass({
   }
 });
 
-var CreateMessage = React.createClass({
-  getInitialState: function(){
-    return {
-      'username': '',
-      'message': '',
-      'createdAt': ''
-    }
-  },
-
-  handleSubmit: function(e){
-    e.preventDefault();
-    this.props.handleNewMessage(this.state.message);
-    this.setState({'message': ''});
-  },
-
-  handleMessageChange: function(e){
-    e.preventDefault();
-    this.setState({'message': e.target.value});
-  },
-
-  render: function(){
-    var user = JSON.parse(localStorage.getItem('user'));
-    return(
-      <form onSubmit={this.handleSubmit} id="message-form">
-        <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <input
-              value={this.state.message}
-              onChange={this.handleMessageChange}
-              className="form-control"
-              id="message"
-              placeholder="Message"
-              rows="2" />
-            <button type="submit" className="btn btn-default">Submit Message</button>
-            <a className="btn btn-default" href="#" role="schedules/">Return Home</a>
-        </div>
-      </form>
-    );
-  }
-});
-
-var MessagesDisplay = React.createClass({
-  render: function(){
-    var messages = this.props.messages;
-    var messagesList = messages.map(function(data) {
-      return (
-        <li key={data.get('_id')}>
-          Name: {data.get('username')};
-          Msg: {data.get('message')};
-          '': {data.get('createdAt')}
-        </li>
-      );
-    })
-    return(
-      <ul className="well">
-          {messagesList}
-      </ul>
-    );
-  }
-});
-
-var MessageBoard = React.createClass({
-  getInitialState: function(){
-    return {
-      messages: new MessageCollection()
-    }
-  },
-  componentWillMount: function(){
-    var self = this;
-
-    var messagesCollection = new collection.MessageCollection();
-    messagesCollection.fetch().done(function(data){
-      self.setState({messages: messagesCollection});
-    });
-
-    messagesCollection.on('add', this.update)
-
-    this.intervalId = setInterval(function(){
-      messagesCollection.fetch()
-    }, 30000)
-  },
-
-  componentWillUnmount: function(){
-    clearInterval(this.intervalId)
-  },
-
-  update: function(){
-    this.forceUpdate()
-  },
-
-  handleNewMessage: function(message){
-    this.state.messages.create({
-      'username': JSON.parse(localStorage.getItem('user')),
-      'message': message,
-      'createdAt': moment().format("0000")
-    }, {wait: true});
-  },
-
-  render: function(){
-    var username = JSON.parse(localStorage.getItem('user'));
-    return(
-      <div className="row">
-        <div className="col-md-6 col-md-offset-1">
-          <h3>Let's chat, {user.firstname1}!</h3>
-          <MessagesDisplay messages={this.state.messages}/>
-          <CreateMessage handleNewMessage={this.handleNewMessage} />
-        </div>
-      </div>
-    );
-  }
-});
 
 module.exports = {
   'MapSchedule': MapSchedule,
-  'MessageBoard': MessageBoard,
 };
 // Google Map key >>  AIzaSyCTxwfw21PFbas9U69kH7ZhmmtvGWgjzJU
