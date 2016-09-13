@@ -9,7 +9,7 @@ The Pool Party app is developed in React with various components that include a 
 
 Future development will include the online modifying of the schedule, the editing of Groups (to remove members no longer wishing to be in it), the automation of email confirmation to activate the Group and notify its members, and eventually in the mobile version, the ability to GPS track pick up & drop off routes for parents as well as automated text messages when your child has arrived at school.
 
-Steps:
+## Steps:
 1. At Welcome page, click on "Click here" link in either intro copy or under login form for new signups.
 2. At Sign Up page, fill out form completely (2nd parent is optionanl) and submit.
 3. Upon return to Welcome page, insert your Username and Password on the login form. (FYI, parse server is slow and sometimes takes time to register new user...give it 5 minutes to be sure.)
