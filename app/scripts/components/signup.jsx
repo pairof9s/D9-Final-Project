@@ -125,7 +125,7 @@ var Signup = React.createClass({
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
-          <div className="icon-third"><a href="login/"><img src="images/PoolParty_purplelog.png"></img></a></div>
+          <div className="icon-third"><a href="#login/"><img src="images/PoolParty_purplelog.png"></img></a></div>
           <div>
 						<h1 id="page-title">Register to join Pool Party</h1>
 					</div>
