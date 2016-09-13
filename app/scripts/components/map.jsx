@@ -37,19 +37,24 @@ var NavTitle = React.createClass({
 var MapSchedule = React.createClass({
   getInitialState: function(){
     return {
-      // ourGroup: new Group(),
+      ourGroup: new Group(),
     };
   },
   componenntDidMount: function(){
-    // var ourGroup = this.state.ourGroup;
+    var ourGroup = this.state.ourGroup;
     // console.log(ourGroup);
-    // this.state.ourGroup.fetch().done(function(){
-    //   self.forceUpdate();
-    // });
+    this.state.ourGroup.fetch([myGroup]).done(function(){
+      self.forceUpdate();
+    });
     // console.log('ourGroup');
   },
   render: function(){
     var user = JSON.parse(localStorage.getItem('user'));
+    // var ourGroup = this.state.ourGroup.map(function(myGroup){
+    //   return (
+    //     myGroup[0]
+    //   );
+    // });
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
@@ -74,10 +79,7 @@ var MapSchedule = React.createClass({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{}</td>
-                      <td>{}</td>
-                      <td>{}</td>
-                      <td>{}</td>
+                      <td>TBD</td>
                     </tr>
                   </tbody>
                 </table>
@@ -89,11 +91,12 @@ var MapSchedule = React.createClass({
           </div>
           <div className="sect-sep"></div>
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-7">
               <div className="subtitle"><h2><img src="./images/schedule-cal.png" className="panel-art"/> Schedule Area</h2>
               </div>
             </div>
-            <div className="col-md-6">
+
+            <div className="col-md-5">
               <div className="subtitle"><h2><img src="./images/chat.png" className="panel-art"/> Let's Chat..</h2>
               </div>
               <div>
