@@ -28,8 +28,8 @@ var Comment = React.createClass({
   render: function() {
     return (
       <div className="comment">
-        <h4 className="commentAuthor">
-          {this.props.author}
+        <h4 className="comment-author">
+          {this.props.author} -
         </h4>
         <span>{this.props.text} </span>
       </div>
@@ -45,7 +45,7 @@ var CommentList = React.createClass({
       );
     });
     return (
-      <div className="commentList">
+      <div className="comment-list">
         {commentNodes}
       </div>
     );
@@ -75,16 +75,16 @@ var CommentForm = React.createClass({
   render: function() {
     return (
       <div className="row well col-md-8">
-        <form className="commentForm form-group" onSubmit={this.handleSubmit}>
+        <form className="comment-form form-group" onSubmit={this.handleSubmit}>
           <input
-            className="form-control"
+            className="form-control com-field"
             type="text"
             placeholder="Your name"
             value={this.state.author}
             onChange={this.handleAuthorChange}
           />
           <input
-            className="form-control"
+            className="form-control com-field"
             type="text"
             placeholder="Say something..."
             value={this.state.text}
