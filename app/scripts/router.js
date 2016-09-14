@@ -7,8 +7,6 @@ var Login = require('./components/login.jsx');
 var Signup = require('./components/signup.jsx');
 var GroupSetup = require('./components/group-setup.jsx').GroupSetup;
 var MapSchedule = require('./components/map.jsx').MapSchedule;
-var MessageBoard = require('./components/map.jsx').MessageBoard;
-var NavTitle = require('./components/nav-bar.jsx').NavTitle;
 var User = require('./models/user').User;
 
 var CommentBox = require('./components/comments.jsx').CommentBox;
@@ -60,14 +58,7 @@ var Router = Backbone.Router.extend({
   scheduleController: function(){
     var self = this;
     ReactDOM.render(
-      React.createElement(MapSchedule, MessageBoard, {router: self}),
-      document.getElementById('container')
-    );
-  },
-  navBar: function(){
-    var self = this;
-    ReactDOM.render(
-      React.createElement(NavTitle, {router: self}),
+      React.createElement(MapSchedule, {router: self}),
       document.getElementById('container')
     );
   },

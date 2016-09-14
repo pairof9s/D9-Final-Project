@@ -34,10 +34,35 @@ var NavTitle = React.createClass({
   }
 });
 
+var OurGroup = React.createClass({
+  getInitialState: function() {
+    return {
+      myGroup: '',
+    };
+  },
+  componentDidMount: function() {
+    this.serverRequest = $.get(this.props.source, function (result) {
+      var myGroup = result[0];
+      this.setState({
+        url: 'https://d9-dev-server.herokuapp.com/classes/D9groups'
+      });
+    }.bind(this));
+  },
+  componentWillUnmount: function() {
+    this.serverRequest.abort();
+  },
+  render: function() {
+    return (
+      <div>
+        {myGroup}
+      </div>
+    );
+  }
+});
+
 var MapSchedule = React.createClass({
   getInitialState: function(){
     return {
-      ourGroup: new Group(),
     };
   },
   componenntDidMount: function(){
@@ -46,15 +71,9 @@ var MapSchedule = React.createClass({
     this.state.ourGroup.fetch([myGroup]).done(function(){
       self.forceUpdate();
     });
-    // console.log('ourGroup');
   },
   render: function(){
     var user = JSON.parse(localStorage.getItem('user'));
-    // var ourGroup = this.state.ourGroup.map(function(myGroup){
-    //   return (
-    //     myGroup[0]
-    //   );
-    // });
     return (
       <div>
         <div className="col-xs-offset-1 col-xs-10 col-md-offset-2 col-md-8">
@@ -65,10 +84,10 @@ var MapSchedule = React.createClass({
             <h1 id="page-title">Hi, {user.firstname1}!</h1>
           </div>
           <div className="sect-sep">
-            <p>This is copy that welcomes Primary/Secondary parent’s name and the Student’s name. Information concerning the Student’s school & class level, their parent’s name, home address and email. The lower level will contain the current month’s schedule as well as a request board for schedule changes.</p>
+            <p>The Pool Party has started! As you will see, your Group is only display, providing information concerning the students, their school, their parent’s name, home address, phone and email. The lower level contains the current month’s schedule as well as a request board for schedule changes.</p>
           </div>
           <div className="row">
-            <div className="col-md-10">
+            <div className="col-md-12">
               <div className="subtitle"><h2><img src="./images/our-group.png" className="panel-art"/> Our Group</h2></div>
               <div className="well table-responsive">
                 <table border="1" className="table">
@@ -79,7 +98,7 @@ var MapSchedule = React.createClass({
                   </thead>
                   <tbody>
                     <tr>
-                      <td>TBD</td>
+                      <td>{OurGroup}</td>
                     </tr>
                   </tbody>
                 </table>
